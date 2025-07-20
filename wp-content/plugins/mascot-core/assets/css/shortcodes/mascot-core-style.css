@@ -1,0 +1,185 @@
+/*
+ * shortcode.scss
+ * -----------------------------------------------
+*/
+
+.elementor-editor-active .elementor-widget-tm-ele-blank-box {
+    min-height: 30px;
+    background-color: #cb9494;
+}
+
+.tm-ele-blank-box>.each-object {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.tm-ele-blank-box>.each-object:after {
+    content: "";
+    position: absolute;
+    background-color: #eee;
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/*
+ * Shortcode: image-with-rotated-text.scss
+ * -----------------------------------------------
+*/
+
+.tm-sc-image-with-rotated-text {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    transition: all 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tm-sc-image-with-rotated-text {
+        transition: none;
+    }
+}
+
+.tm-sc-image-with-rotated-text .image-text-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+
+.tm-sc-image-with-rotated-text .image-text-wrapper .image-inner {
+    overflow: hidden;
+}
+
+.tm-sc-image-with-rotated-text .image-text-wrapper .image-inner img {
+    transform: scale(1);
+    transition: 1s;
+}
+
+.tm-sc-image-with-rotated-text .image-text-wrapper .text-holder {
+    font-size: 12rem;
+    font-weight: 700;
+    font-family: var(--heading-font-family);
+    line-height: 1;
+    margin: 0;
+    color: transparent;
+    -webkit-text-stroke: 2px #c2c0bd;
+    transition: all 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tm-sc-image-with-rotated-text .image-text-wrapper .text-holder {
+        transition: none;
+    }
+}
+
+.tm-sc-image-with-rotated-text .image-text-wrapper .text-holder .text {
+    transition: all 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tm-sc-image-with-rotated-text .image-text-wrapper .text-holder .text {
+        transition: none;
+    }
+}
+
+.tm-sc-image-with-rotated-text.text-position-top-left .text-holder,
+.tm-sc-image-with-rotated-text.text-position-bottom-left .text-holder {
+    left: 18px;
+    position: absolute;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    -webkit-transform-origin: bottom left;
+    -moz-transform-origin: bottom left;
+    transform-origin: bottom left;
+    white-space: nowrap;
+}
+
+.tm-sc-image-with-rotated-text.text-position-top-left .text-holder {
+    bottom: 74px;
+}
+
+.tm-sc-image-with-rotated-text.text-position-bottom-left .text-holder {
+    bottom: -29px;
+}
+
+.tm-sc-image-with-rotated-text.text-position-top-right .text-holder,
+.tm-sc-image-with-rotated-text.text-position-bottom-right .text-holder {
+    position: relative;
+    left: auto;
+    float: right;
+    right: -152px;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-transform-origin: top right;
+    -ms-transform-origin: top right;
+    transform-origin: top right;
+    white-space: nowrap;
+}
+
+.tm-sc-image-with-rotated-text.text-position-bottom-right .text-holder {
+    bottom: 42px;
+}
+
+.tm-sc-image-with-rotated-text.text-position-top-right .text-holder {
+    bottom: 18.2%;
+    position: absolute;
+}
+
+/*
+ * Shortcode: line-with-text.scss
+ * -----------------------------------------------
+*/
+
+.tm-sc-line-with-text .horizontal-line {
+    display: inline-block;
+    vertical-align: middle;
+    height: 2px;
+    width: 50px;
+    background-color: #fac400;
+}
+
+.tm-sc-line-with-text .horizontal-text {
+    display: inline-block;
+    vertical-align: middle;
+    letter-spacing: 0.09em;
+    padding-left: 15px;
+}
+
+.tm-sc-line-with-text.line-after-title .horizontal-text {
+    padding-left: 0;
+    padding-right: 15px;
+}
+
+.tm-sc-line-with-text.line-above-title .horizontal-line {
+    display: block;
+}
+
+.tm-sc-line-with-text.line-above-title .horizontal-text {
+    display: block;
+    padding-left: 0;
+    padding-top: 15px;
+}
+
+.tm-sc-line-with-text.line-below-title .horizontal-line {
+    display: block;
+}
+
+.tm-sc-line-with-text.line-below-title .horizontal-text {
+    display: block;
+    padding-left: 0;
+    padding-bottom: 15px;
+}
+
+.tm-section-box-bg {
+    position: absolute;
+    top: -150px;
+    left: 225px;
+    bottom: -150px;
+    right: -100000px;
+    background-color: var(--theme-color1);
+}

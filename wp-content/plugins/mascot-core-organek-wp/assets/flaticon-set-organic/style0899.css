@@ -1,0 +1,148 @@
+@font-face {
+  font-family: 'FlaticonOrganic';
+  src:  url('fonts/flaticon-set-organic666e.eot?gwrdkk');
+  src:  url('fonts/flaticon-set-organic666e.eot?gwrdkk#iefix') format('embedded-opentype'),
+    url('fonts/flaticon-set-organic666e.ttf?gwrdkk') format('truetype'),
+    url('fonts/flaticon-set-organic666e.woff?gwrdkk') format('woff'),
+    url('fonts/flaticon-set-organic666e.svg?gwrdkk#FlaticonOrganic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="flaticon-organic-"], [class*=" flaticon-organic-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'FlaticonOrganic' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  line-height: inherit !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-organic-almonds:before {
+  content: "\e001";
+}
+.flaticon-organic-carrot:before {
+  content: "\e002";
+}
+.flaticon-organic-cherry:before {
+  content: "\e004";
+}
+.flaticon-organic-fish:before {
+  content: "\e00e";
+}
+.flaticon-organic-leaf1:before {
+  content: "\e010";
+}
+.flaticon-organic-lettuce:before {
+  content: "\e011";
+}
+.flaticon-organic-organic:before {
+  content: "\e017";
+}
+.flaticon-organic-paper-bags:before {
+  content: "\e018";
+}
+.flaticon-organic-shop-leaf:before {
+  content: "\e01e";
+}
+.flaticon-organic-sprout:before {
+  content: "\e020";
+}
+.flaticon-organic-017-cardboard:before {
+  content: "\f10f";
+}
+.flaticon-organic-018-carrot:before {
+  content: "\f110";
+}
+.flaticon-organic-023-leaf:before {
+  content: "\f114";
+}
+.flaticon-organic-026-leaf-1:before {
+  content: "\f117";
+}
+.flaticon-organic-030-cherry:before {
+  content: "\f11b";
+}
+.flaticon-organic-031-broccoli:before {
+  content: "\f11c";
+}
+.flaticon-organic-032-fish:before {
+  content: "\f11d";
+}
+.flaticon-organic-033-chicken-leg:before {
+  content: "\f11e";
+}
+.flaticon-organic-034-orange-juice:before {
+  content: "\f11f";
+}
+.flaticon-organic-036-dairy-products:before {
+  content: "\f121";
+}
+.flaticon-organic-037-coconut:before {
+  content: "\f122";
+}
+.flaticon-organic-039-bread:before {
+  content: "\f124";
+}
+.flaticon-organic-041-leaf-2:before {
+  content: "\f126";
+}
+.flaticon-organic-061-fruits:before {
+  content: "\f13a";
+}
+.flaticon-organic-069-bread-1:before {
+  content: "\f142";
+}
+.flaticon-organic-072-milk-box:before {
+  content: "\f145";
+}
+.flaticon-organic-073-chicken-leg-1:before {
+  content: "\f146";
+}
+.flaticon-organic-074-eggs:before {
+  content: "\f147";
+}
+.flaticon-organic-075-salad:before {
+  content: "\f148";
+}
+.flaticon-organic-076-broccoli-1:before {
+  content: "\f149";
+}
+.flaticon-organic-077-vegetable:before {
+  content: "\f14a";
+}
+.flaticon-organic-081-onion:before {
+  content: "\f14e";
+}
+.flaticon-organic-096-chicken-leg-2:before {
+  content: "\f15d";
+}
+.flaticon-organic-098-broccoli-2:before {
+  content: "\f15f";
+}
+.flaticon-organic-107-green-tea:before {
+  content: "\f168";
+}
+.flaticon-organic-041-leaf-2-1:before {
+  content: "\e900";
+}
+.flaticon-organic-069-bread-1-1:before {
+  content: "\e901";
+}
+.flaticon-organic-072-milk-box-1:before {
+  content: "\e902";
+}
+.flaticon-organic-073-chicken-leg-1-1:before {
+  content: "\e903";
+}
+.flaticon-organic-076-broccoli-1-1:before {
+  content: "\e904";
+}
