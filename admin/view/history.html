@@ -1,0 +1,30 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+    <span>history</span>
+  </p>
+
+  <form id="viewhistory" class="">
+    <div class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+      <div class="form-group">
+          <label for="userid" class="control-label">User</label>
+          <select name="userid" id="userid" class="form-controls">
+              <option value="">Select User</option>
+              <!-- Options will be dynamically generated -->
+          </select>
+          <datalist id="useridlist"></datalist>
+      </div>
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div></div>
+        <div></div>
+        <div class="mt-5 flex justify-end">
+          <button id="submit" type="button" class="btn">
+            <div class="btnloader" style="display: none"></div>
+            <span>Submit</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="userHistory" class="mt-8"></div>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,127 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>onlineusers</span>
+    </p>
+
+    <div class="flex w-full justify-end gap-4">
+        <button
+          onclick="printContent('Online Users', null, 'viewonlineusers', true)"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">print</span>
+        </button>
+    
+        <button
+          onclick="exportToPDF('viewonlineusers')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">picture_as_pdf</span>
+        </button>
+    
+        <button
+          onclick="exportToExcel('viewonlineusers', 'onlineusers_list')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">file_download</span>
+        </button>
+      </div>
+      
+    <!-- here is the tab navigation -->
+    <ul class="cark:border-gray-700 cark:text-gray-400 flex border-b border-gray-200 text-center text-sm font-medium text-gray-500">
+        <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+        <li  class="cp viewer optioner active me-2 !text-blue-600" name="viewonlineusers" onclick="runoptioner(this)">
+            <p class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600">View online users</p>
+        </li> 
+    </ul>
+
+     
+    
+     <div class="" id="viewonlineusers">
+
+        <form id="onlineusersform" class="">
+            <div class="flex flex-col space-y-3 rounded-sm bg-blue-100 p-5 xl:p-10">
+                <div class="form-group">
+                    <label for="q" class="control-label">Enter any data in mind</label>
+                    <input type="text" name="q" id="q" class="form-control comp bg-white" placeholder="Enter Query">
+                </div>
+                <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                    <div class="form-group">
+                        <label for="userid" class="control-label">User</label>
+                        <select name="userid" id="userid" class="form-controls" placeholder="Enter User"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="branch" class="control-label">Branch</label>
+                        <select name="branch" id="branch" class="form-controls comp1">
+                            <option value="" disabled selected>-- Select Branch --</option>
+                            <!-- Add options here -->
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                    <div></div>
+                    <div></div>
+                    <div class="mt-5 flex justify-end">
+                        <button id="submit" type="button" class="btn">
+                            <div class="btnloader" style="display: none;"></div>
+                            <span>Search</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form> 
+
+        <div class="summary-card mb-6 rounded-lg bg-white p-6 shadow-md">
+            <h2 class="mb-4 text-xl font-bold">Online Users Summary</h2>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+                <!-- <div class="summary-item">
+                    <p class="text-gray-500">Total Users</p>
+                    <p class="text-2xl font-semibold" id="total-users">0</p>
+                </div> -->
+                <div class="summary-item">
+                    <p class="text-gray-500">Active Users</p>
+                    <p class="text-2xl font-semibold" id="active-users">0</p>
+                </div>
+                <!-- <div class="summary-item">
+                    <p class="text-gray-500">Inactive Users</p>
+                    <p class="text-2xl font-semibold" id="inactive-users">0</p>
+                </div> -->
+                <div class="summary-item">
+                    <p class="text-gray-500">Branches</p>
+                    <p class="text-2xl font-semibold" id="total-branches">0</p>
+                </div>
+            </div>
+        </div>
+         
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:10px">s/n</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Branch</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Online Status</th>
+                        <th>Time Ago</th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    
+   </section> 

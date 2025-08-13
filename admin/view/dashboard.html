@@ -1,0 +1,146 @@
+<!-- Inventory Dashboard snippet (Tailwind‑only)
+     Drop this straight inside your Vue/React/Blade page – no <html>, <head>, or <body> wrappers needed. -->
+
+      <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 darkk:from-gray-900 darkk:to-gray-800 text-gray-800 darkk:text-gray-200 antialiased">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <!-- ========== HEADER ========= -->
+          <header class="sticky top-0 z-40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 px-6 py-4 bg-white/80 darkk:bg-gray-900/80 backdrop-blur-lg shadow ring-1 ring-gray-200 darkk:ring-gray-700 rounded-xl mt-4 mb-8">
+            <div class="flex items-center gap-3">
+              <div class="p-2 bg-gradient-to-r from-primary-500 to-secondary-600 rounded-lg">
+                <i class="fas fa-boxes text-white text-xl"></i>
+              </div>
+              <h1 class="text-2xl font-bold tracking-tight whitespace-nowrap">Inventory Dashboard</h1>
+            </div>
+      
+            <div class="flex w-full hidden md:w-auto gap-3">
+              <!-- Search -->
+              <label class="relative flex-1 md:flex-none">
+                <input id="globalSearch" type="search" placeholder="Search products..."
+                  class="peer w-full pl-4 pr-10 py-2 rounded-xl border border-gray-300 darkk:border-gray-700 bg-white/70 darkk:bg-gray-800/70 focus:ring-2 focus:ring-primary-500/40 focus:border-primary-500 transition" />
+                <i class="fas fa-search absolute top-1/2 right-3 -translate-y-1/2 text-gray-400 peer-focus:text-primary-500"></i>
+              </label>
+      
+              <!-- New product -->
+              <button id="newProductBtn"
+                class="flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-white bg-gradient-to-r from-primary-500 to-secondary-600 hover:from-primary-600 hover:to-secondary-700 focus:ring-4 focus:ring-primary-500/30 transition">
+                <i class="fas fa-plus"></i>
+                <span class="hidden sm:inline">New Product</span>
+              </button>
+            </div>
+          </header>
+      
+          <!-- ========== METRIC CARDS ========= -->
+          <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" id="metricWrapper">
+            <!--        Cards will be injected by JS        -->
+          </section>
+      
+          <!-- ========== STATS SUMMARY ========= -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <!-- Total Products -->
+            <div class="rounded-2xl p-5 shadow bg-gradient-to-br from-indigo-50 to-purple-50 darkk:from-gray-800 darkk:to-gray-800/70">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-2 rounded-lg bg-indigo-100 darkk:bg-indigo-900/40"><i class="fas fa-box-open text-indigo-600 darkk:text-indigo-400"></i></div>
+                <h3 class="font-semibold text-gray-700 darkk:text-gray-200">Total Products</h3>
+              </div>
+              <p class="text-2xl font-bold text-gray-800 darkk:text-white">0</p>
+              <div class="mt-2 flex items-center text-sm text-green-500"><i class="fas fa-arrow-up mr-1"></i>0 new this week</div>
+            </div>
+            <!-- Total Categories -->
+            <div class="rounded-2xl p-5 shadow bg-gradient-to-br from-amber-50 to-orange-50 darkk:from-gray-800 darkk:to-gray-800/70">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-2 rounded-lg bg-amber-100 darkk:bg-amber-900/40"><i class="fas fa-tags text-amber-600 darkk:text-amber-400"></i></div>
+                <h3 class="font-semibold text-gray-700 darkk:text-gray-200">Total Categories</h3>
+              </div>
+              <p class="text-xl font-bold text-gray-800 darkk:text-white">0</p>
+              <p class="mt-2 text-sm text-gray-600 darkk:text-gray-400">0 updated recently</p>
+            </div>
+            <!-- Total Personnel -->
+            <div class="rounded-2xl p-5 shadow bg-gradient-to-br from-green-50 to-emerald-50 darkk:from-gray-800 darkk:to-gray-800/70">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-2 rounded-lg bg-green-100 darkk:bg-green-900/40"><i class="fas fa-users text-green-600 darkk:text-green-400"></i></div>
+                <h3 class="font-semibold text-gray-700 darkk:text-gray-200">Total Personnel</h3>
+              </div>
+              <p class="text-2xl font-bold text-gray-800 darkk:text-white">0</p>
+              <div class="mt-2 flex items-center text-sm text-green-500"><i class="fas fa-check-circle mr-1"></i>0 new hires this month</div>
+            </div>
+          </div>
+      
+          <!-- ========== TABS ========= -->
+          <section class="bg-white darkk:bg-gray-900/80 rounded-2xl shadow mt-10 overflow-hidden">
+            <!-- Tab headers -->
+            <nav class="flex border-b border-gray-200 darkk:border-gray-700">
+              <button class="tab-btn active px-6 py-4 text-base font-semibold text-primary-600 darkk:text-primary-400 relative" data-tab="products"><i class="fas fa-boxes mr-2"></i>Products</button>
+              <button class="tab-btn px-6 py-4 text-base font-semibold text-gray-600 darkk:text-gray-300 hover:text-primary-600 relative" data-tab="categories"><i class="fas fa-tags mr-2"></i>Categories</button>
+              <button class="tab-btn px-6 py-4 text-base font-semibold text-gray-600 darkk:text-gray-300 hover:text-primary-600 relative" data-tab="analytics"><i class="fas fa-chart-pie mr-2"></i>Analytics</button>
+            </nav>
+      
+            <!-- Tab bodies -->
+            <div class="tab-content" id="products"> <!-- product table here (unchanged) --> </div>
+            <div class="tab-content hidden" id="categories"> <!-- ...placeholder... --> </div>
+            <div class="tab-content hidden" id="analytics"> <!-- ...placeholder... --> </div>
+          </section>
+        </div>
+      </div>
+      
+      <!-- ========== METRIC CARD TEMPLATE ========= -->
+      <template id="metricCardTmpl">
+        <div class="group relative rounded-2xl bg-white darkk:bg-gray-900/80 shadow hover:shadow-xl hover:-translate-y-1 transition overflow-hidden">
+          <div class="p-6 space-y-2">
+            <div class="flex items-center justify-between">
+              <h2 class="metric-value text-4xl font-extrabold bg-clip-text text-transparent"></h2>
+              <div class="metric-icon p-3 rounded-xl transition group-hover:text-white group-hover:bg-current"></div>
+            </div>
+            <span class="metric-label block text-sm font-medium text-gray-500 darkk:text-gray-400"></span>
+            <div class="metric-trend pt-2 text-xs"></div>
+          </div>
+          <span class="metric-bar pointer-events-none absolute inset-x-0 bottom-0 h-1.5"></span>
+        </div>
+      </template>
+      
+      <!-- ========== SCRIPTS ========= -->
+      <script>
+        /* ------------ METRIC CARDS ------------- */
+        const metrics = [
+          { value: 0, label: 'Total Products', icon: 'fa-box-open', color: 'primary', trend: '+12 new this week' },
+          { value: 0,  label: 'Categories',     icon: 'fa-tags',     color: 'amber',   trend: '3 updated recently' },
+          { value: 0,  label: 'Low Stock',      icon: 'fa-exclamation-triangle', color: 'rose', trend: '3 critical items' },
+          { value: 0,   label: 'Draft Items',    icon: 'fa-file-alt', color: 'sky',    trend: '2 pending approval' }
+        ];
+      
+        const colors = {
+          primary: 'from-primary-600 to-secondary-600',
+          amber:   'from-amber-500 to-orange-500',
+          rose:    'from-rose-500 to-pink-600',
+          sky:     'from-sky-500 to-indigo-500'
+        };
+      
+        const wrapper = document.getElementById('metricWrapper');
+        const tmpl     = document.getElementById('metricCardTmpl').content;
+      
+        metrics.forEach(m => {
+          const node = tmpl.cloneNode(true);
+          node.querySelector('.metric-value').textContent = m.value;
+          node.querySelector('.metric-label').textContent = m.label;
+          node.querySelector('.metric-icon').innerHTML = `<i class="fas ${m.icon} text-xl"></i>`;
+          node.querySelector('.metric-icon').classList.add(`text-${m.color}-500`, `bg-${m.color}-500/10`);
+          node.querySelector('.metric-trend').innerHTML = `<i class='fas fa-arrow-up mr-1'></i>${m.trend}`;
+          node.querySelector('.metric-value').classList.add(...colors[m.color].split(' '));
+          node.querySelector('.metric-bar').classList.add(`bg-gradient-to-r`, ...colors[m.color].split(' '));
+          wrapper.appendChild(node);
+        });
+      
+        /* ------------ TAB SWITCHER ------------- */
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
+            document.querySelectorAll('.tab-content').forEach(p => p.classList.toggle('hidden', p.id !== btn.dataset.tab));
+          });
+        });
+      
+        /* ------------ NEW PRODUCT BUTTON -------- */
+        document.getElementById('newProductBtn').addEventListener('click', e => {
+          e.currentTarget.classList.add('animate-pulse');
+          setTimeout(() => e.currentTarget.classList.remove('animate-pulse'), 800);
+        });
+      </script>
+      

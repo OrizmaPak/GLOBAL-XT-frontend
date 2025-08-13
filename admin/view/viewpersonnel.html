@@ -1,0 +1,60 @@
+<section class="relative animate__animated animate__fadeIn">
+  <p class="page-title">
+    <span>viewpersonnel Information</span>
+  </p>
+
+  <div class="" id="viewviewpersonnel">
+    <form id="filterviewviewpersonnel" class="">
+      <div class="flex flex-col p-5 space-y-3 bg-blue-100 rounded-sm xl:p-10">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-4">
+            <div class="col-span-3 form-group">
+                <label for="queryUser" class="control-label">Search</label>
+                <input type="text" name="q" id="q" class="bg-white form-control comp" placeholder="Search by anything">
+            </div>
+            <div class="form-group">
+              <label for="userid" class="control-label">User</label>
+              <select name="userid" id="filterusers" class="form-controls">
+                <option value="">-- select user --</option>
+              </select>
+            </div>
+            <div class="flex col-span-4 justify-end mt-5">
+              <button id="viewpersonnelSubmit" type="button" class="btn">
+                  <div class="btnloader" style="display: none;"></div>
+                  <span>Search</span>
+              </button>
+          </div>
+        </div>
+      
+      </div>
+  </form>
+    <div class="table-content">
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>Name</th>
+            <th>Profile Picture</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Country</th>
+            <th>State</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Occupation</th>
+            <th>Marital Status</th>
+            <th>Branch Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+</section>

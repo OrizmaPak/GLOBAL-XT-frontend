@@ -1,0 +1,138 @@
+       <section class="animate__animated animate__fadeIn relative">
+                            <p class="page-title">
+                                <span>stock history</span>
+                            </p>
+
+                            <div class="mb-3 flex w-full justify-end gap-4">
+                                <button
+                                  onclick="printContent('Stock History', null, 'viewstockhistory', true)"
+                                  type="button"
+                                  class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+                                >
+                                  <div class="btnloader" style="display: none"></div>
+                                  <span class="material-icons">print</span>
+                                </button>
+                            
+                                <button
+                                  onclick="exportToPDF('viewstockhistory')"
+                                  type="button"
+                                  class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+                                >
+                                  <div class="btnloader" style="display: none"></div>
+                                  <span class="material-icons">picture_as_pdf</span>
+                                </button>
+                            
+                                <button
+                                  onclick="exportToExcel('viewstockhistory', 'stock_history_list')"
+                                  type="button"
+                                  class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+                                >
+                                  <div class="btnloader" style="display: none"></div>
+                                  <span class="material-icons">file_download</span>
+                                </button>
+                              </div>
+                            
+                            <form id="stockhistoryform">
+                                <div class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+                                    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                                        <div class="form-group">
+                                            <label for="logoname" class="control-label">Branch</label>
+                                            <select name="branch" id="branch" class="form-controls !bg-white !text-black">
+                                                    <option>Loading...</option>
+                                                </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="logoname" class="control-label">Department</label>
+                                            <select name="department" id="departmentsearch" class="form-control !bg-white !text-black">
+                                                    <option>Loading...</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                                        <div class="form-group">
+                                            <label for="logoname" class="control-label">Item</label>
+                                            <select name="itemid" id="itemid" class="form-controls comp">
+                                                <option value="">No item</option>
+                                            </select>
+                                        </div>
+                                        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                                            <div class="form-group">
+                                                <label for="logoname" class="control-label">Start Date</label>
+                                                <input type="date" name="startdate" id="startdate" class="form-control comp" placeholder="Search by Item Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="logoname" class="control-label">End Date</label>
+                                                <input type="date" name="enddate" id="enddate" class="form-control comp" placeholder="Search by Item Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                                        
+                                        <div></div>
+                                        <div></div>
+                                        
+                                        <div class="mt-5 flex justify-end">
+                                             <button id="submit" type="button" class="btn">
+                                                <div class="btnloader" style="display: none;"></div>
+                                                <span>Submit</span>
+                                            </button>
+                                            <!-- <button id="submit" type="button" class="flex w-full items-center justify-center gap-3 rounded-md bg-gradient-to-tr from-blue-400 via-blue-500 to-primary-g px-8 py-3 text-sm font-medium capitalize text-white shadow-md transition duration-300 ease-in-out hover:opacity-75 md:w-max lg:py-2">-->
+                                            <!--    <div class="btnloader" style="display: none;"></div>-->
+                                            <!--    <span>Submit</span>-->
+                                            <!--</button>-->
+                                        </div>
+                                        
+                                    </div> 
+                        
+                                </div>
+                            </form>
+                            <hr class="my-10">
+                            
+                            
+                             <div class="viewstockhistory">
+                                <div class="table-content">
+                                        <div class="my-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+                                            <div class="flex flex-col">
+                                                <span class="text-gray-600">Balance Brought In:</span>
+                                                <span id="balanceBroughtIn" class="font-semibold text-gray-900">0</span>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <span class="text-gray-600">Balance Brought Out:</span>
+                                                <span id="balanceBroughtOut" class="font-semibold text-gray-900">0</span>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <span class="text-gray-600">Balance Brought Forward:</span>
+                                                <span id="balanceBroughtForward" class="font-semibold text-gray-900">0</span>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <span class="text-gray-600">Balance Brought Forward Cost:</span>
+                                                <span id="balanceBroughtForwardCost" class="font-semibold text-gray-900">0</span>
+                                            </div>
+                                        </div>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th style="width:10px">s/n</th>
+                                                <th>item</th>
+                                                <th>transaction date</th>
+                                                <th>branch</th>
+                                                <th>department</th>
+                                                <th>qty in</th>
+                                                <th>qty out</th>
+                                                <th>description</th>
+                                                <th>ref</th>
+                                                <th>balance</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tabledata">
+                                           <tr>
+                                                <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-status"></div>
+                            </div>
+                            
+                        
+                                </section> 

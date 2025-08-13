@@ -1,0 +1,168 @@
+<section class="relative animate__animated animate__fadeIn">
+  <p class="page-title">
+    <span>addlevel</span>
+  </p>
+
+  <!-- here is the tab navigation -->
+  <ul
+    class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 cark:border-gray-700 cark:text-gray-400"
+  >
+    <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+    <li
+      class="cp viewer optioner active me-2 !text-blue-600"
+      name="viewaddlevel"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block p-4 capitalize rounded-t-lg hover:bg-gray-50 hover:text-gray-600"
+      >
+        view addlevel
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="addlevelform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block p-4 capitalize rounded-t-lg hover:bg-gray-50 hover:text-gray-600"
+      >
+        Manage addlevel
+      </p>
+    </li>
+  </ul>
+
+  <form id="addlevelform" class="hidden">
+    <div class="flex flex-col p-6 space-y-5 bg-white rounded-lg shadow-lg xl:p-10">
+      
+      <!-- Level & Basic Salary -->
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <div class="form-group">
+          <label for="level" class="font-semibold text-gray-700">Level</label>
+          <input type="text" name="level" id="level" class="p-2 w-full rounded-md border border-gray-300 comp" placeholder="Enter Level">
+        </div>
+        <div class="form-group">
+          <label for="basicsalary" class="font-semibold text-gray-700">Basic Salary</label>
+          <input type="number" name="basicsalary" id="basicsalary" class="p-2 w-full rounded-md border border-gray-300 comp" placeholder="Enter Salary">
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description" class="font-semibold text-gray-700">Description</label>
+        <textarea name="description" id="description" class="p-2 w-full rounded-md border border-gray-300 comp" placeholder="Enter Description"></textarea>
+      </div>
+
+    <!-- Allowances Section -->
+      <div class="space-y-3">
+        <h2 class="text-lg font-semibold">Allowances</h2>
+        <div id="allowances-list">
+            <div class="grid grid-cols-3 gap-3 allowance-item">
+                <div class="form-group">
+                  <label for="allowancetype" class="font-semibold text-gray-700">Allowance Type</label>
+                  <select name="allowancetype" id="allowancetype" class="p-2 w-full rounded-md border border-gray-300 allowancetype comp">
+                      <option value="">-- Select a type --</option>
+                      <option value="AMOUNT">AMOUNT</option>
+                      <option value="PERCENTAGE">PERCENTAGE</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="allowance" class="font-semibold text-gray-700">Allowance Value</label>
+                  <input type="number" name="allowance" id="allowance" placeholder="Value" class="p-2 w-full rounded-md border border-gray-300 allowance comp">
+                </div>
+                <div class="flex items-end w-full">
+                  <button type="button" onclick="addAllowance()" class="px-4 py-2 text-white bg-green-600 rounded-md">Add More</button>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Deductions Section -->
+      <div class="space-y-3">
+        <h2 class="text-lg font-semibold">Deductions</h2>
+        <div id="deductions-list">
+            <div class="grid grid-cols-3 gap-3 deduction-item">
+                <div class="form-group">
+                  <label for="deductiontype" class="font-semibold text-gray-700">Deduction Type</label>
+                  <select name="deductiontype" id="deductiontype" class="p-2 w-full rounded-md border border-gray-300 deductiontype comp">
+                      <option value="">-- Select a type --</option>
+                      <option value="AMOUNT">AMOUNT</option>
+                      <option value="PERCENTAGE">PERCENTAGE</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="deduction" class="font-semibold text-gray-700">Deduction Value</label>
+                  <input type="number" name="deduction" id="deduction" placeholder="Value" class="p-2 w-full rounded-md border border-gray-300 deduction comp">
+                </div>
+                <div class="flex items-end w-full">
+                  <button type="button" onclick="addDeduction()" class="px-4 py-2 text-white bg-green-600 rounded-md">Add More</button>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div></div>
+        <div></div>
+        <div class="flex justify-end mt-5">
+          <button id="submit" type="button" class="btn">
+            <div class="btnloader" style="display: none"></div>
+            <span>Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+</form>
+
+
+  <div class="" id="viewaddlevel">
+     <!-- Filter Form -->
+     <form id="filteraddlevel" class="">
+      <div class="flex flex-col p-5 space-y-3 bg-blue-100 rounded-sm xl:p-10">
+          <div class="grid grid-cols-1 gap-6 lg:grid-cols-4">
+              <div class="col-span-3 form-group">
+                  <label for="queryUser" class="control-label">Search</label>
+                  <input type="text" name="q" id="q" class="bg-white form-control comp" placeholder="Search by anything">
+              </div>
+              <div class="form-group">
+                <label for="userid" class="control-label">User</label>
+                <select name="userid" id="userid" class="form-controls">
+                  <option value="">-- select user --</option>
+                </select>
+              </div>
+              <div class="flex col-span-4 justify-end mt-5">
+                  <button id="querySubmit" type="button" class="btn">
+                      <div class="btnloader" style="display: none;"></div>
+                      <span>Search</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </form>
+    <div class="table-content">
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>Level</th>
+            <th>Basic salary</th>
+            <th>no of allowances</th>
+            <th>no of deductions</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+</section>

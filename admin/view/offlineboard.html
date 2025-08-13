@@ -1,0 +1,83 @@
+    <body class="bg-gradient-to-tr w-full from-indigo-100 to-blue-gray-100 min-h-screen">
+        <div class="container mx-auto p-4">
+            <!-- Dashboard Card -->
+            <div class=" mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+                <!-- Header Section -->
+                <div class="bg-gradient-to-r from-indigo-500 to-blue-600 p-6">
+                    <h1 class="text-2xl font-bold text-white">Offline Marketing Dashboard</h1>
+                    <p class="text-indigo-200 mt-1">Your daily access portal</p>
+                </div>
+    
+                <!-- Content Section -->
+                <div class="p-6 space-y-6">
+                    <!-- Marketer Profile -->
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center">
+                                <img src="" name="user_image" alt="Marketer Profile" class="w-full h-full rounded-full object-cover">
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-semibold text-gray-800" name="user_name"></h2>
+                            <p class="text-gray-600">Field Marketer</p>
+                        </div>
+                        <span class="ml-auto bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Verified Marketer</span>
+                    </div>
+    
+                    <!-- Download Section -->
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-medium text-blue-800">Offline App Package</h3>
+                                <p class="text-sm text-blue-600 mt-1">Version 1.0.1 | 6MB</p>
+                            </div>
+                            <a href="./apps/GXT Offline Marketing.apk" download class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition-colors">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                </svg>
+                                Download
+                            </a>
+                        </div>
+                    </div>
+    
+                    <!-- Access Codes -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="text-center">
+                                <span class="text-sm font-medium text-gray-500">Daily Access Code</span>
+                                <div id="dailycode" class="mt-2 text-2xl font-bold text-green-600 font-mono cursor-pointer" onclick="navigator.clipboard.writeText(this.innerText).then(() => notification('Daily Access Code copied!'));">LOADING...</div>
+                                <p class="text-xs text-gray-400 mt-2">Valid until 11:59 PM</p>
+                            </div>
+                        </div>                                                                      
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="text-center">
+                                <span class="text-sm font-medium text-gray-500">Security PIN</span>
+                                <div class="flex items-center justify-center">
+                                    <div id="pinpasscode" class="mt-2 text-2xl font-bold text-purple-600 font-mono blur-sm flex items-center">
+                                        <span>LOADING</span>
+                                    </div>
+                                    <svg id="eyeIcon" class="w-5 relative top-[5px] h-5 ml-2 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" onclick="togglePinVisibilityoffline()">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </div>
+                                <p class="text-xs text-gray-400 mt-2">One-day use</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Instructions -->   
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h4 class="text-sm font-medium text-yellow-800 mb-2">Important Notes:</h4>
+                        <ul class="list-disc list-inside text-sm text-yellow-700 space-y-1">
+                            <li>Codes refresh daily at midnight</li>
+                            <li>Keep your PIN confidential</li>
+                            <li>Use latest app version for best experience</li>
+                            <li>The application needs to be online for the initial launch for every new day. After the initial setup, you can operate offline by accessing the system with your pass code and completing offline transactions using your pin.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>

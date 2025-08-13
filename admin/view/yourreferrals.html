@@ -1,0 +1,61 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>your referrals</span>
+    </p>
+
+    <div class="mb-3 flex w-full justify-end gap-4">
+        <button
+          onclick="printContent('Your Referrals', null, 'viewyourreferrals', true)"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">print</span>
+        </button>
+    
+        <button
+          onclick="exportToPDF('viewyourreferrals')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">picture_as_pdf</span>
+        </button>
+    
+        <button
+          onclick="exportToExcel('viewyourreferrals', 'your_referrals_list')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">file_download</span>
+        </button>
+      </div>
+    
+     <div class="" id="viewyourreferrals">
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th style="width:10px">s/n</th>
+                        <th>date added</th>
+                        <th>full names</th>
+                        <th>branch</th>
+                        <th>country</th>
+                        <th>state</th>
+                        <th>address</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    
+   </section> 

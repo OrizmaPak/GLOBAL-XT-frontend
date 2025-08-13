@@ -1,4 +1,6 @@
-// window.addEventListener('load', function () {
+let baseurl = 'http://localhost:5100/node';
+// 
+// // window.addEventListener('load', function () {
     if(document.getElementById('header')){
         document.getElementById('header').innerHTML=`
             <div id="elementor-header-top" class="elementor-header-top-transparent">
@@ -294,7 +296,7 @@
 													<div class="elementor-element elementor-element-831add4 tm-header-search-content-style-side-panel hide-cart-count-yes elementor-widget elementor-widget-tm-ele-header-cart"
 														data-id="831add4" data-element_type="widget"
 														data-widget_type="tm-ele-header-cart.default">
-														<div class="elementor-widget-container">
+														<div class="elementor-widget-container d-none">
 															<div class="woocommerce top-nav-mini-cart-icon-container">
 																<div class="top-nav-mini-cart-icon-contents">
 																	<a class="mini-cart-icon"
@@ -361,7 +363,7 @@
 																	<li id="menu-item-52569"
 																		class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-52569 ">
 																		<a title="Shop" class="menu-item-link"
-																			href="https://wp2022.kodesolution.com/organek/shop/"><span>Shop</span>
+																			href="https://wp2022.kodesolution.com/organek/shop/"><span>Products</span>
 																		</a>
 																		<ul class="dropdown">
 																			<li id="menu-item-52570"
@@ -682,7 +684,7 @@
 													<li
 														class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-52569 ">
 														<a title="Shop" class="menu-item-link"
-															href="https://wp2022.kodesolution.com/organek/shop/"><span>Shop</span>
+															href="https://wp2022.kodesolution.com/organek/shop/"><span>Products</span>
 														</a>
 														<ul class="dropdown">
 															<li
@@ -1676,3 +1678,18 @@ We connect local farmers to international buyers — with integrity, quality, an
 // });
 
 // document.getElementById('preloader').style.display = 'none'
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+fetch(`${baseurl}/node/api/v1/admin/department`)
+    .then(response => response.json())
+    .then(data => {
+        console.log('Categories data:', data);
+        // You can add code here to handle the fetched data, such as updating the DOM
+    })
+    .catch(error => {
+        console.error('Error fetching categories data:', error);
+    });
+});

@@ -1,0 +1,74 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>issue type</span>
+    </p>
+
+    <div class="mb-3 flex w-full justify-end gap-4">
+        <button
+          onclick="printContent('Issue Type', null, 'viewissuetype', true)"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">print</span>
+        </button>
+    
+        <button
+          onclick="exportToPDF('viewissuetype')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">picture_as_pdf</span>
+        </button>
+    
+        <button
+          onclick="exportToExcel('viewissuetype', 'issue_type_list')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">file_download</span>
+        </button>
+      </div>
+    
+
+    <form id="issuetypeform" class="">
+        <div class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+            <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                <div class="form-group">
+                    <label for="issuetype" class="control-label">issue type</label>
+                    <input type="text" name="issuetype" id="issuetype" class="form-control comp" placeholder="Enter issue type">
+                </div>
+                <div class="mt-5 flex justify-end">
+                    <button id="submit" type="button" class="btn">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>   
+    
+     <div class="" id="viewissuetype">
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th style="width:10px">s/n</th>
+                        <th>issuetype</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    
+   </section> 

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup | GXT</title>
+    <link rel="shortcut icon" href="/view/images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.default.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    
+<link rel="manifest" href="./manifest.json">
+</head>
+<body class="h-screen overflow-hidden xl:bg-[#fafafa]" >
+
+    <section class="h-full overflow-y-auto">
+        <div class="font-heebo 3xl:w-2/5 mx-auto mt-10 text-center text-base font-bold uppercase text-primary-g md:w-2/3 lg:mb-10 xl:w-1/3"> 
+            DH<span class="text-gray-400">F</span>
+        </div> 
+        <div class="3xl:w-2/5 mx-auto w-full rounded px-12 py-14 pt-4 drop-shadow-sm xl:w-1/2 xl:border xl:bg-white">
+            <h1 class="text-center text-2xl font-bold">Sign Up</h1>
+            <p class="mt-5 text-center font-sans text-xs leading-relaxed tracking-wider text-gray-400">Provide the information below to register a new account</p>
+            <form class="mt-10" id="signupform" autocomplete="of">
+                <div class="flex flex-col gap-4">
+
+                    <div class="flex flex-col items-start gap-3 lg:flex-row">
+                        <div class="flex w-full items-center rounded-t border-b-0 bg-[#fafafa]">
+                            <span class="flex h-14 w-14">
+                                <span class="material-symbols-outlined m-auto text-gray-300">map</span>
+                            </span>
+                            <span class="flex flex-col space-y-1">
+                                <label for="branch" class="text-2xs font-heebo font-normal capitalize text-gray-500"> branch</label>
+                                <select name="branch" id="branch" class="comp w-full! min-w-[250px] max-w-[465px] bg-transparent text-sm font-semibold placeholder:text-xs placeholder:text-gray-500 focus:border-transparent focus:outline-none focus:ring-0">
+                                    <option value="">-- Select Branch --</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div> 
+                    <!-- Membership -->
+                    <div class="form-group">
+                        <label for="membership" class="control-label">Membership</label>
+                        <select
+                        name="membership"
+                        id="membership"
+                        multiple
+                        class="form-controls"
+                        >
+                        <option value="">Loading...</option>
+                        <!-- Add more membership options as needed -->
+                        </select>
+                    </div>
+                    <div class="flex flex-col items-start gap-3 lg:flex-row">
+                        <div class="form-group-auth">
+                            <label for="firstname" class="text-2xs font-heebo font-normal capitalize text-gray-500">first name</label>
+                            <input name="firstname" id="firstname" type="text" class="w-full border-b-2 border-gray-300 bg-transparent text-sm font-semibold transition duration-300 ease-linear focus:border-primary-g focus:outline-none focus:ring-0">
+                        </div>
+                        <div class="form-group-auth">
+                            <label for="lastname" class="text-2xs font-heebo font-normal capitalize text-gray-500">last name</label>
+                            <input name="lastname" id="lastname" type="text" class="w-full border-b-2 border-gray-300 bg-transparent text-sm font-semibold transition duration-300 ease-linear focus:border-primary-g focus:outline-none focus:ring-0">
+                        </div>
+                        <div class="form-group-auth">
+                            <label for="othernames" class="text-2xs font-heebo font-normal capitalize text-gray-500">other names</label>
+                            <input name="othernames" id="othernames" type="text" class="w-full border-b-2 border-gray-300 bg-transparent text-sm font-semibold transition duration-300 ease-linear focus:border-primary-g focus:outline-none focus:ring-0">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-start gap-3 lg:flex-row">
+                        <div class="form-group-auth">
+                            <label for="email" class="text-2xs font-heebo font-normal capitalize text-gray-500">email</label>
+                            <input name="email" id="email" type="email" class="w-full border-b-2 border-gray-300 bg-transparent text-sm font-semibold transition duration-300 ease-linear focus:border-primary-g focus:outline-none focus:ring-0">
+                        </div>
+                        <div class="form-group-auth">
+                            <label for="phone" class="text-2xs font-heebo font-normal capitalize text-gray-500">phone</label>
+                            <input name="phone" id="phone" type="tel" class="w-full border-b-2 border-gray-300 bg-transparent text-sm font-semibold transition duration-300 ease-linear focus:border-primary-g focus:outline-none focus:ring-0">
+                        </div>
+                        <div class="form-group-auth">
+                            <label for="address" class="text-2xs font-heebo font-normal capitalize text-gray-500">address</label>
+                            <input name="address" id="address" type="text" class="w-full border-b-2 border-gray-300 bg-transparent text-sm font-semibold transition duration-300 ease-linear focus:border-primary-g focus:outline-none focus:ring-0">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-start gap-3 lg:flex-row">
+                        <div class="form-group-auth">
+                            <label for="country" class="text-2xs font-heebo font-normal capitalize text-gray-500">country</label>
+                            <select name="country" id="country" class="w-full border-b-2 border-gray-300 bg-transparent text-sm font-semibold transition duration-300 ease-linear focus:border-primary-g focus:outline-none focus:ring-0">
+                                <option value="">-- Select Country --</option>
+                                <!-- Add country options here -->
+                            </select>
+                        </div>
+                        <div class="form-group-auth">
+                            <label for="state" class="text-2xs font-heebo font-normal capitalize text-gray-500">state</label>
+                            <select name="state" id="state" class="w-full border-b-2 border-gray-300 bg-transparent text-sm font-semibold transition duration-300 ease-linear focus:border-primary-g focus:outline-none focus:ring-0">
+                                <option value="">-- Select State --</option>
+                                <!-- Add state options here -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-start gap-3 lg:flex-row">
+                        <div class="form-group-auth">
+                            <label for="password" class="text-2xs font-heebo font-normal capitalize text-gray-500">password</label>
+                            <input name="password" id="password" type="password" class="w-full border-b-2 border-gray-300 bg-transparent text-sm font-semibold transition duration-300 ease-linear focus:border-primary-g focus:outline-none focus:ring-0">
+                        </div>
+                        <div class="form-group-auth">
+                            <label for="confirmpassword" class="text-2xs font-heebo font-normal capitalize text-gray-500">confirmpassword</label>
+                            <input  id="confirmpassword" type="password" class="w-full border-b-2 border-gray-300 bg-transparent text-sm font-semibold transition duration-300 ease-linear focus:border-primary-g focus:outline-none focus:ring-0">
+                        </div>
+                    </div>
+                
+                    <div class="3xl:gap-1 mt-10 flex flex-col items-center gap-3 md:flex-row">
+                        <button id="submit" type="button" class="lg:py-2shadow-md flex w-full items-center justify-center gap-3 bg-gradient-to-tr from-blue-400 via-blue-500 to-primary-g px-8 py-3 text-sm font-medium capitalize text-white transition duration-300 ease-in-out hover:opacity-75 md:w-max">
+                            <div class="btnloader" style="display: none;" ></div>
+                            <span>Signup</span>
+                        </button>
+                        <a href="./login.html" class="rounded-xs flex w-full items-center justify-center gap-3 bg-white px-6 py-3 text-sm font-medium capitalize text-gray-600 shadow-sm transition duration-300 ease-in-out hover:opacity-75 md:w-max lg:py-2">
+                            <span>Login account</span>
+                        </a>
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+    </section>
+    <script>
+        const randomQuery = () => `?q=${Math.random()}`;
+        document.write(`<script src="./js/util.js${randomQuery()}"><\/script>`);
+        document.write(`<script src="./js/oreutil.js${randomQuery()}"><\/script>`);
+        document.write(`<script src="./js/signup.js${randomQuery()}"><\/script>`);
+    </script>
+    </body>
+    </html>

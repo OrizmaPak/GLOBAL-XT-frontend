@@ -1,0 +1,148 @@
+<section class="animate__animated animate__fadeIn">
+    <p class="page-title">
+        <span>VIEW IN-TAKE REQUISITION</span>
+    </p>
+
+    <div class="mb-3 flex w-full justify-end gap-4">
+        <button
+          onclick="printContent('In-Take Requisition', null, 'viewintakerequisition', true)"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">print</span>
+        </button>
+    
+        <button
+          onclick="exportToPDF('viewintakerequisition')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">picture_as_pdf</span>
+        </button>
+    
+        <button
+          onclick="exportToExcel('viewintakerequisition', 'intake_requisition_list')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">file_download</span>
+        </button>
+      </div>
+
+    <form id="viewinrequisitionform">
+        <div class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+            <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Branch</label>
+                    <select name="branch" id="branch" class="form-controls comp !bg-white !text-black">
+                            <option>Loading...</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Department</label>
+                    <select name="department" id="departmentsearch" class="form-control !bg-white !text-black">
+                            <option>Loading...</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Start Date</label>
+                    <input type="date" name="startdate" id="startdate" class="form-control" placeholder="Search by Item Name">
+                </div>
+                <div class="form-group">
+                    <label for="logoname" class="control-label">End Date</label>
+                    <input type="date" name="enddate" id="enddate" class="form-control" placeholder="Search by Item Name">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                
+                <div></div>
+                <div></div>
+                
+                <div class="mt-5 flex justify-end">
+                     <button id="submit" type="button" class="btn">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Submit</span>
+                    </button>
+                </div>
+                
+            </div> 
+
+        </div>
+    </form>
+    <hr class="my-10">
+    
+    
+     <div class="viewintakerequisition">
+        <div class="table-content mx-auto max-w-[2000px] overflow-auto">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:10px">s/n</th>
+                        <th>items<br/>No.</th>
+                        <th>ITEMS</th>
+                        <th>TOTAL<br/>QUANTITY</th>
+                        <th>TOTAL<br/>COST</th>
+                        <th>TOTAL<br/>Selling price</th>
+                        <th>TRANSACTION<br/>DATE</th>
+                        <th>TRANSACTION<br/>TIME</th>
+                        <th>SOURCE BRANCH</th>
+                        <th>SOURCE DEPARTMENT</th>
+                        <th>status</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    
+    <div id="viewinrequisitionmodal" onclick="if(event.target.id === 'viewinrequisitionmodal')this.classList.add('hidden')" class="fixed left-0 top-0 flex hidden h-full w-full items-start justify-center overflow-y-auto bg-[#0000004a]">
+        <div class="mt-8 h-fit min-h-[400px] w-fit min-w-[500px] max-w-[90%] rounded-md bg-white p-2 shadow-lg">
+            
+            <div class="flex w-full justify-between py-2">
+                <p id="modaltitle" class="text-md font-bold">ITEMS VIEW FOR PURCHASE ORDER</p>
+                <span onclick="document.getElementById('viewinrequisitionmodal').classList.add('hidden')" class="cp material-symbols-outlined group-hover:text-primary-g"
+                   style="font-size: 20px;">close</span>
+            </div>
+            
+            <hr class="mb-4"/>
+            
+             <p class="!text-sm font-thin">Supplier: <span id="vrqsupplier" class="!text-sm font-semibold uppercase" style=""></span></p>
+            <p class="!text-sm font-thin">Transaction Time: <span class="!text-sm font-semibold" id="vrqtime" style="">  </span></p>
+            <p class="!text-sm font-thin">Transaction Date: <span class="!text-sm font-semibold" id="vrqdate" style=""> </span> </p>
+            <p class="!text-sm font-thin">Location: <span id="vrqlocation" class="!text-sm font-semibold uppercase" style=""></span></p>
+            <p class="!text-sm font-thin" style="marginLeft: 20px;">Description: <span id="vrqdesc" class="font-semibold" style=""></span> </p>
+            <p class="!text-sm font-thin">Invoice Number: <span id="vrqref" class="!text-sm font-semibold uppercase" style=""></span></p>
+            
+            
+               <div class="table-content my-4">
+                    <table>
+                        <thead>
+                            <tr>
+                               <th>s/n </th>
+                                <th> Item ID </th>
+                                <th> Item Name </th>
+                                <th> Quantity </th>
+                                <th> Cost </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabledata2">
+                           <tr>
+                                <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+        
+    </div>
+
+        </section> 

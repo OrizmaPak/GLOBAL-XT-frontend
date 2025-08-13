@@ -1,0 +1,322 @@
+    <section class="h-full overflow-y-auto">
+        <div class="text-primary-g font-heebo font-bold text-base uppercase md:w-2/3 xl:w-1/3 3xl:w-2/5 mx-auto text-center mt-10 lg:mb-10"> 
+            <!--He<span class="text-gray-400">ms</span>-->
+        </div> 
+        <div class="bg-white xl:border w-[90%] mx-auto rounded py-14 px-5 xl:px-12 drop-shadow-sm pt-4">
+            <!-- <h1 class="font-bold text-2xl text-center">Profile</h1> -->
+            <!--<p class="mt-5 text-xs text-gray-400 tracking-wider leading-relaxed font-sans text-center">Provide the information below to register a new account</p>-->
+        <form id="profilesform" class="">
+            <!-- Tab Navigation -->
+            <ul class="flex flex-wrap border-b mb-6" role="tablist">
+                <li class="mr-6 mb-2">
+                    <button type="button" data-target="personal-info-tab"
+                            class="tab-button pb-2 border-b-2 bg-transparent border-transparent font-medium text-gray-700 hover:text-blue-600">
+                        Personal Information
+                    </button>
+                </li>
+                <li class="mr-6 mb-2">
+                    <button type="button" data-target="contact-info-tab"
+                            class="tab-button pb-2 border-b-2 bg-transparent border-transparent font-medium text-gray-700 hover:text-blue-600">
+                        Contact Information
+                    </button>
+                </li>
+                <li class="mr-6 mb-2">
+                    <button type="button" data-target="address-details-tab"
+                            class="tab-button pb-2 border-b-2 bg-transparent border-transparent font-medium text-gray-700 hover:text-blue-600">
+                        Address Details
+                    </button>
+                </li>
+                <li class="mr-6 mb-2">
+                    <button type="button" data-target="nextofkin-tab"
+                            class="tab-button pb-2 border-b-2 bg-transparent border-transparent font-medium text-gray-700 hover:text-blue-600">
+                        Next of Kin
+                    </button>
+                </li>
+                <li class="mr-6 mb-2">
+                    <button type="button" data-target="additional-info-tab"
+                            class="tab-button pb-2 border-b-2 bg-transparent border-transparent font-medium text-gray-700 hover:text-blue-600">
+                        Additional Info
+                    </button>
+                </li>
+                <li class="mr-6 mb-2">
+                    <button type="button" data-target="bank-info-tab"
+                            class="tab-button pb-2 border-b-2 bg-transparent border-transparent font-medium text-gray-700 hover:text-blue-600">
+                        Bank Info
+                    </button>
+                </li>
+            </ul>
+
+            <div id="tabss">
+                <!-- Tab Panels -->
+                <!-- Personal Information Tab Panel -->
+                <div id="personal-info-tab" class="tab-panel">
+                    <input type="hidden" name="id" id="id"
+                           class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="">
+                    <h2 class="text-xl font-semibold mb-4 border-b pb-2 text-gray-800">Personal Information</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="flex flex-col w-5/6 m-auto items-center py-5 sticky top-0 bg-transparent border-b border-gray-200/50">
+                            <div title="Click to update profile logo" class="relative cp">
+                                <img id="logoFrame" alt="Logo Preview" class="w-[250px] lg:w-[200px] h-auto rounded-full overflow-hidden object-center" onclick="document.getElementById('image').click()" src="./images/default-avatar.png">
+                                <span class="absolute bottom-0 right-[10px] lg:right-[50px] bg-white rounded-full p-1 cursor-pointer shadow-xl" onclick="document.getElementById('image').click()">
+                                    <span class="material-symbols-outlined h-6 w-6 text-gray-500">edit</span>
+                                </span>
+                                <input type="file" name="image" id="image" class="form-control hidden" accept="image/*" onchange="updateImage(event)">
+                            </div>
+                        </div>
+                        <div class="form-group mt-auto">
+                            <label for="firstname" class="control-label font-medium text-gray-700">First Name</label>
+                            <input type="text" name="firstname" id="firstname" readonly
+                                   class="form-control comp mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter First Name" required>
+                        </div>
+                        <div class="form-group mt-auto">
+                            <label for="lastname" class="control-label font-medium text-gray-700">Last Name</label>
+                            <input type="text" name="lastname" id="lastname" readonly
+                                   class="form-control comp mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="othernames" class="control-label font-medium text-gray-700">Other Names</label>
+                            <input type="text" name="othernames" id="othernames" readonly
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Other Names">
+                        </div>
+                        <div class="form-group">
+                            <label for="dateofbirth" class="control-label font-medium text-gray-700">Date of Birth</label>
+                            <input type="date" name="dateofbirth" id="dateofbirth"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Date of Birth">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="control-label font-medium text-gray-700">Gender</label>
+                            <select name="gender" id="gender"
+                                    class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0">
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="MALE">Male</option>
+                                <option value="FEMALE">Female</option>
+                            </select>
+                        </div>
+                    <div class="form-group">
+                        <label for="occupation" class="control-label font-medium text-gray-700">Occupation</label>
+                        <input type="text" name="occupation" id="occupation"
+                               class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Occupation">
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information Tab Panel -->
+                <div id="contact-info-tab" class="tab-panel hidden">
+                    <h2 class="text-xl font-semibold mb-4 border-b pb-2 text-gray-800">Contact Information</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label for="email" class="control-label font-medium text-gray-700">Email</label>
+                            <input type="email" name="email" id="email" readonly
+                                   class="form-control comp mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="officeaddress" class="control-label font-medium text-gray-700">Office Address</label>
+                            <input type="text" name="officeaddress" id="officeaddress"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Office Address">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address Details Tab Panel -->
+                <div id="address-details-tab" class="tab-panel hidden">
+                    <h2 class="text-xl font-semibold mb-4 border-b pb-2 text-gray-800">Address Details</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="form-group">
+                            <label for="country" class="control-label font-medium text-gray-700">Country</label>
+                            <input type="text" name="country" id="country"
+                                   class="form-control comp mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Country" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state" class="control-label font-medium text-gray-700">State</label>
+                            <input type="text" name="state" id="state"
+                                   class="form-control comp mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter State" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="town" class="control-label font-medium text-gray-700">Town</label>
+                            <input type="text" name="town" id="town"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Town">
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="control-label font-medium text-gray-700">Address</label>
+                            <input type="text" name="address" id="address"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="stateofresidence" class="control-label font-medium text-gray-700">State of Residence</label>
+                            <input type="text" name="stateofresidence" id="stateofresidence"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter State of Residence">
+                        </div>
+                        <div class="form-group">
+                            <label for="lgaofresidence" class="control-label font-medium text-gray-700">LGA of Residence</label>
+                            <input type="text" name="lgaofresidence" id="lgaofresidence"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter LGA of Residence">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next of Kin Tab Panel -->
+                <div id="nextofkin-tab" class="tab-panel hidden">
+                    <h2 class="text-xl font-semibold mb-4 border-b pb-2 text-gray-800">Next of Kin Information</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="form-group">
+                            <label for="nextofkinfullname" class="control-label font-medium text-gray-700">Full Name</label>
+                            <input type="text" name="nextofkinfullname" id="nextofkinfullname"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Next of Kin Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nextofkinphone" class="control-label font-medium text-gray-700">Phone</label>
+                            <input type="tel" name="nextofkinphone" id="nextofkinphone"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Next of Kin Phone" pattern="\+\d{10,15}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nextofkinrelationship" class="control-label font-medium text-gray-700">Relationship</label>
+                            <input type="text" name="nextofkinrelationship" id="nextofkinrelationship"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Relationship" required>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+                        <div class="form-group">
+                            <label for="nextofkinaddress" class="control-label font-medium text-gray-700">Address</label>
+                            <input type="text" name="nextofkinaddress" id="nextofkinaddress"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Next of Kin Address">
+                        </div>
+                        <div class="form-group">
+                            <label for="nextofkinofficeaddress" class="control-label font-medium text-gray-700">Office Address</label>
+                            <input type="text" name="nextofkinofficeaddress" id="nextofkinofficeaddress"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Next of Kin Office Address">
+                        </div>
+                        <div class="form-group">
+                            <label for="nextofkinoccupation" class="control-label font-medium text-gray-700">Occupation</label>
+                            <input type="text" name="nextofkinoccupation" id="nextofkinoccupation"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Next of Kin Occupation">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information Tab Panel -->
+                <div id="additional-info-tab" class="tab-panel hidden">
+                    <h2 class="text-xl font-semibold mb-4 border-b pb-2 text-gray-800">Additional Information</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="form-group">
+                            <label for="maritalstatus" class="control-label font-medium text-gray-700">Marital Status</label>
+                            <input type="text" name="maritalstatus" id="maritalstatus"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Marital Status">
+                        </div>
+                        <div class="form-group">
+                            <label for="spousename" class="control-label font-medium text-gray-700">Spouse Name</label>
+                            <input type="text" name="spousename" id="spousename"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Spouse Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="role" class="control-label font-medium text-gray-700">Role</label>
+                            <input readonly value="MEMBER" type="text" name="role" id="role" class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Role">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+                        <div class="form-group">
+                        </div>
+                        <div class="form-group">
+                            <!-- <label for="registrationpoint" class="control-label font-medium text-gray-700">Registration Point</label>
+                            <input type="number" name="registrationpoint" id="registrationpoint"
+                                   class="form-control comp mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Registration Point" value="0" min="0" required> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bank Information Tab Panel -->
+                <div id="bank-info-tab" class="tab-panel hidden">
+                    <h2 class="text-xl font-semibold mb-4 border-b pb-2 text-gray-800">Bank Information</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 bg-gray-100 p-4 rounded-lg shadow-md">
+                        <div class="form-group">
+                            <label for="bank_name" class="control-label font-medium text-gray-700">Bank Name</label>
+                            <input type="text" name="bank_name" id="bank_name" readonly
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0 bg-gray-200" placeholder="Enter Bank Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="account_number" class="control-label font-medium text-gray-700">Account Number</label>
+                            <input type="text" name="account_number" id="account_number" readonly
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0 bg-gray-200" placeholder="Enter Account Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="account_name" class="control-label font-medium text-gray-700">Account Name</label>
+                            <input type="text" name="account_name" id="account_name" readonly
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0 bg-gray-200" placeholder="Enter Account Name">
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning !hidden bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
+                        <p class="font-bold">Warning</p>
+                        <p>Only account numbers that match the your name on the account are allowed. Please ensure the account name matches your profile name.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 !hidden lg:grid-cols-3 gap-6 mt-6">
+                        <div class="form-group">
+                            <label for="bank" class="control-label font-medium text-gray-700">Bank</label>
+                            <select name="bank" id="bank" onchange="resolveAccountDetails('#bank', '#bank_account_number', '#bank_account_name')" class="realbank form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0">
+                                <option value="" disabled selected>Select Bank</option>
+                                <!-- Add bank options here -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bank_account_number" class="control-label font-medium text-gray-700">Bank Account Number</label>
+                            <input type="text" onchange="resolveAccountDetails('#bank', '#bank_account_number', '#bank_account_name')" class=" form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" name="bank_account_number" id="bank_account_number"
+                             placeholder="Enter Bank Account Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="bank_account_name" class="control-label font-medium text-gray-700">Bank Account Name</label>
+                            <input type="text" name="bank_account_name" id="bank_account_name" readonly
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Bank Account Name">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 !hidden lg:grid-cols-3 gap-6 mt-6">
+                        <div class="form-group">
+                            <label for="bank2" class="control-label font-medium text-gray-700">Bank 2</label>
+                            <select name="bank2" id="bank2" onchange="resolveAccountDetails('#bank2', '#bank_account_number2', '#bank_account_name2')" class="realbank form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0">
+                                <option value="" disabled selected>Select Bank 2</option>
+                                <!-- Add bank options here -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bank_account_number2" class="control-label font-medium text-gray-700">Bank Account Number 2</label>
+                            <input type="text" name="bank_account_number2" onchange="resolveAccountDetails('#bank2', '#bank_account_number2', '#bank_account_name2')" id="bank_account_number2"
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Bank Account Number 2">
+                        </div>
+                        <div class="form-group">
+                            <label for="bank_account_name2" class="control-label font-medium text-gray-700">Bank Account Name 2</label>
+                            <input type="text" name="bank_account_name2" id="bank_account_name2" readonly
+                                   class="form-control mt-1 w-full border-gray-300 rounded border-t-0 border-x-0" placeholder="Enter Bank Account Name 2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation and Submit Buttons -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-5">
+                <div></div>
+                <div></div>
+                <div class="flex justify-end space-x-3">
+                    <button type="button" id="prevBtn"
+                            class="hidden bg-gray-300 text-gray-700 py-2 px-5 rounded hover:bg-gray-400 font-semibold">
+                        Previous
+                    </button>
+                    <button type="button" id="nextBtn"
+                            class="bg-blue-600 text-white py-2 px-5 rounded hover:bg-blue-700 font-semibold">
+                        Next
+                    </button>
+                    <!-- Submit button, hidden initially -->
+                    <button id="submit" type="submit"
+                            class="hidden btn bg-green-600 text-white py-2 px-5 rounded hover:bg-green-700 font-semibold">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+            <!-- <label id="newpersonpassword" class="control-label font-medium text-red-700">Password is the person's Phone Number</label> -->
+        </form>
+            
+        </div>
+    </section>
+  

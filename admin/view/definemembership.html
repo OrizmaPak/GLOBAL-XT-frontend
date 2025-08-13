@@ -1,0 +1,89 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>DEFINE MEMBERSHIP</span>
+    </p>
+
+    <div class="flex w-full justify-end gap-4">
+        <button
+          onclick="printContent('Define Membership', null, 'viewdefinemembership', true)"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">print</span>
+        </button>
+    
+        <button
+          onclick="exportToPDF('viewdefinemembership')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">picture_as_pdf</span>
+        </button>
+    
+        <button
+          onclick="exportToExcel('viewdefinemembership', 'membership_list')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">file_download</span>
+        </button>
+      </div>
+
+    <!-- here is the tab navigation -->
+    <ul class="cark:border-gray-700 cark:text-gray-400 flex border-b border-gray-200 text-center text-sm font-medium text-gray-500">
+        <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+        <li  class="cp viewer optioner active me-2 !text-blue-600" name="viewdefinemembership" onclick="runoptioner(this)">
+            <p class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600">View define membership</p>
+        </li> 
+        <li id="" class="cp updater optioner me-2" name="definemembershipform" onclick="runoptioner(this)">
+            <p class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600">Manage define membership</p>
+        </li>
+    </ul>
+
+    <form id="definemembershipform" class="hidden">
+        <div class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+            <div class="form-group">
+                <label for="definemembership" class="control-label">Define membership</label>
+                    <input type="text" name="member" id="member" class="form-control comp" placeholder="Enter Membership">
+            </div>
+            
+            <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                <div></div>
+                <div></div>
+                <div class="mt-5 flex justify-end">
+                    <button id="submit" type="button" class="btn">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>   
+    
+     <div class="" id="viewdefinemembership">
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th style="width:10px">s/n</th>
+                        <th>Member</th>     
+                        <th>add member on registration</th>     
+                        <th>status</th>     
+                        <th>Action</th>     
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    
+   </section> 

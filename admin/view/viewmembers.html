@@ -1,0 +1,165 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>view members</span>
+    </p>
+
+    <div class="mb-3 flex w-full justify-end gap-4">
+        <button
+          onclick="printContent('Members', null, 'viewmembers', true)"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">print</span>
+        </button>
+    
+        <button
+          onclick="exportToPDF('viewmembers')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">picture_as_pdf</span>
+        </button>
+    
+        <button
+          onclick="exportToExcel('viewmembers', 'members_list')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">file_download</span>
+        </button>
+      </div>
+
+    <form id="viewmembersform">
+        <div class="flex flex-col space-y-3 rounded-sm bg-blue-100 p-5 xl:p-10">
+            <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                <div class="form-group col-span-2">
+                    <label for="search" class="control-label">Search by Anything</label>
+                    <input type="text" name="search" id="search" class="form-control bg-white" placeholder="Search by anything">
+                </div>
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Staff referral</label>
+                    <select name="createdby" id="createdby" class="form-controls comp !bg-white !text-black">
+                            <option>Loading...</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Registration Point</label>
+                    <select name="registrationpoint" id="registrationpointsearch" class="form-controls !bg-white !text-black">
+                            <option>Loading...</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Branch</label>
+                    <select name="branch" id="branch" class="form-controls !bg-white !text-black">
+                        <option>Loading...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Membership</label>
+                    <select name="member" id="member" class="form-controls !bg-white !text-black">
+                        <option>Loading...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Status</label>
+                    <select name="status" id="status" class="form-control !bg-white !text-black">
+                        <option>ACTIVE</option>
+                        <option>SUSPENDED</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Gender</label>
+                    <select name="gender" id="gender" class="form-control !bg-white !text-black">
+                        <option value="">--SELECT GENDER--</option>
+                        <option>MALE</option>
+                        <option>FEMALE</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="maritalstatus" class="control-label">Marital Status</label>
+                    <select name="maritalstatus" id="maritalstatus" class="form-control !bg-white !text-black">
+                        <option value="">--SELECT MARITAL STATUS--</option>
+                        <option>MARRIED</option>
+                        <option>SINGLE</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="role" class="control-label">Role</label>
+                    <select name="role" id="role" class="form-control !bg-white !text-black">
+                        <option value="">--SELECT ROLE--</option>
+                        <option>MEMBER</option>
+                        <option>STAFF</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Start Date</label>
+                    <input type="date" name="startdate" id="startdate" class="form-control bg-white" >
+                </div>
+                <div class="form-group">
+                    <label for="logoname" class="control-label">End Date</label>
+                    <input type="date" name="enddate" id="enddate" class="form-control bg-white" >
+                </div>
+                
+                <div class="mt-5 flex col-span-3 justify-end">
+                     <button id="submit" type="button" class="btn">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+    
+     <div class="" id="viewmembers">
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th style="width:10px">s/n</th>
+                        <th style="width:10px"><input type="checkbox" id="selectAllCheckbox" onclick="selectAllCheckboxesviewmembers(this)"></th>
+                        <th>date added</th>
+                        <th>full names</th>
+                        <th>branch</th>
+                        <th>country</th>
+                        <th>state</th>
+                        <th>address</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="9" class="text-right">
+                        <div class="flex justify-end space-x-4 mt-4">
+                            <button id="selectAll" type="button" onclick="checkallselectviewmembers()" class=" bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 flex items-center">
+                                <span class="material-icons mr-2">check_box</span>
+                                Select All
+                            </button>
+                            <button id="deselectAll" type="button" onclick="deselectAllCheckboxesviewmembers()" class=" bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 flex items-center">
+                                <span class="material-icons mr-2">check_box_outline_blank</span>
+                                Deselect All
+                            </button>
+                            <button id="sendMessage" type="button" onclick="openMessageModal()" class=" bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 flex items-center">
+                                <span class="material-icons mr-2">send</span>
+                                Board Cast
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    
+   </section> 

@@ -1,0 +1,117 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+    <span>change branch</span>
+  </p>
+
+
+  <!-- here is the tab navigation -->
+  <ul
+    class="cark:border-gray-700 cark:text-gray-400 flex flex-wrap border-b border-gray-200 text-center text-sm font-medium text-gray-500"
+  >
+    <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+    <li
+      class="cp viewer optioner active me-2 !text-blue-600"
+      name="viewchangebranch"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        view change branch
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="changebranchform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        Manage change branch
+      </p>
+    </li>
+  </ul>
+
+   <form id="changebranchform" class="hidden">
+    <div class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <div class="form-group relative z-20">
+        <label for="userid" class="control-label">User</label>
+        <select name="userid" id="userid" class="form-controls comp">
+            <option value="">Select User</option>
+            <!-- Options will be dynamically generated -->
+        </select>
+        <datalist id="useridlist"></datalist>
+      </div>
+      <div class="form-group hidden" id="selectbranch">
+        <label for="branch" class="control-label">branch</label>
+        <select name="branch" id="branch" class="form-controls comp">
+          <option value="">-- Select branch --</option>
+        </select>
+      </div>
+      <div class="form-group hidden" id="reasoncontainer">
+        <label for="reason" class="control-label">Reason</label>
+        <textarea name="reason" id="reason" class="form-control comp" rows="4" placeholder="Enter reason for change"></textarea>
+      </div>
+        <div class="mt-5 flex justify-end hidden col-span-3" id="submitcontainer">
+          <button id="submit" type="button" class="btn">
+            <div class="btnloader" style="display: none"></div>
+            <span>Update</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="" id="viewchangebranch">
+     <form id="viewchangebranchform" class="">
+      <div class="flex flex-col space-y-3 rounded-sm bg-blue-100 p-5 xl:p-10">
+          <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+              <!-- <div class="form-group col-span-3">
+                  <label for="queryUser" class="control-label">Search</label>
+                  <input type="text" name="q" id="q" class="form-control comp bg-white" placeholder="Search by anything">
+              </div> -->
+              <div class="form-group col-span-1">
+                  <label for="startdate" class="control-label">Start Date</label>
+                  <input type="date" name="startdate" id="startdate" class="form-control comp bg-white">
+              </div>
+              <div class="form-group col-span-1">
+                  <label for="enddate" class="control-label">End Date</label>
+                  <input type="date" name="enddate" id="enddate" class="form-control comp bg-white">
+              </div>
+              <div class="mt-5 flex justify-end">
+                  <button id="querySubmit" type="button" class="btn">
+                      <div class="btnloader" style="display: none;"></div>
+                      <span>Search</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </form>
+    <div class="table-content">
+      <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>date changed</th>
+            <th>full name</th>
+            <th>previous branch</th>
+            <th>current branch</th>
+            <th>reason</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+</section>

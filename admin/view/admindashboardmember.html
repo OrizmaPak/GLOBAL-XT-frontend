@@ -1,0 +1,219 @@
+<div id="ADMINDASHBOARD" class="flex-grow text-gray-800">
+  <main class="space-y-6 p-2 sm:p-4">
+
+    <div class="form-group relative z-20" id="userSelect">
+      <label for="userid" class="control-label">User</label>
+      <select name="userid" id="userid" class="form-controls">
+          <option value="">Select User</option>
+          <!-- Options will be dynamically generated -->
+      </select>
+      <datalist id="useridlist"></datalist>
+    </div>
+    
+    <div class="flex flex-col justify-between space-y-6 md:flex-row md:space-y-0">
+      <div class="mr-6 flex w-full flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <h1 class="mb-2 flex text-2xl font-semibold">Welcome&nbsp;<p id="userName" class="capitalize"></p></h1>
+
+          <!-- Wrap everything in a relative container so the dropdown can be absolutely positioned -->
+          <div class="flex justify-end">
+            <div class="relative inline-block">
+              <!-- The Actions button -->
+              <button
+              title="Actions"
+                id="action_btn"
+                class="hidden transform items-center gap-2 rounded-xl px-2 py-2 text-lg font-bold text-white shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl focus:outline-none active:scale-95"
+              >
+                <img 
+                 class="h-10 w-10"
+                  src="./images/actions.png"
+                 alt="https://www.flaticon.com/free-icon/dots_18880092?term=menu&page=1&position=59&origin=search&related_id=18880092"/>
+              </button>
+
+              <!-- The dropdown overlay -->
+              <div
+                id="action_overlay"
+                class="absolute right-0 z-50 mt-2 grid hidden min-w-[250px] grid-cols-1 gap-y-3 rounded-lg bg-white p-4 shadow-lg sm:min-w-[320px] sm:grid-cols-2 lg:min-w-[450px] lg:grid-cols-3"
+              >
+                  <div onclick="showWithdrawalModal()" class="flex cursor-pointer flex-col items-center gap-2 rounded-md p-2 text-center hover:bg-gray-100">
+                    <img src="./images/atm.png" alt="Withdraw icons created by pojok d - Flaticon https://www.flaticon.com/free-icons/withdraw" class="h-12 w-12"/>
+                    <span class="ml-2 text-sm">Withdraw from personal account</span>
+                  </div>
+                  
+                  <div onclick="showTransferModal()" class="flex cursor-pointer flex-col items-center gap-2 rounded-md p-2 text-center hover:bg-gray-100">
+                    <img src="./images/transfer.png" alt="https://www.flaticon.com/free-icons/transfer Transfer icons created by Freepik - Flaticon" class="h-12 w-12"/>
+                    <span class="ml-2 text-sm">Transfer</span>
+                  </div>
+                  
+                  <div onclick="showCardDepositModal('personal')" class="flex cursor-pointer flex-col items-center gap-2 rounded-md p-2 text-center hover:bg-gray-100">
+                    <img src="./images/deposit.png" alt="https://www.flaticon.com/free-icon/deposit_5566941?term=deposit&page=1&position=6&origin=search&related_id=5566941" class="h-12 w-12"/>
+                    <span class="ml-2 text-sm">Deposit</span>
+                  </div>
+            
+                  <div onclick="viewWithdrawalStatus()" class="flex cursor-pointer flex-col items-center gap-2 rounded-md p-2 text-center hover:bg-gray-100">
+                    <img src="./images/search.png" alt="https://www.flaticon.com/free-icons/information Information icons created by Freepik - Flaticon" class="h-12 w-12"/>
+                    <span class="ml-2 text-sm">Check Withdrawal Status</span>
+                  </div>
+                  
+                  <div onclick="viewTotalAssets()" class="flex cursor-pointer flex-col items-center gap-2 rounded-md p-2 text-center hover:bg-gray-100">
+                    <img src="./images/assets.png" alt="https://www.flaticon.com/free-icons/information Information icons created by Freepik - Flaticon" class="h-12 w-12"/>
+                    <span class="ml-2 text-sm">Total Assets View</span>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Personal Card -->
+    <div class="personal-card-container relative flex flex-col items-center justify-between overflow-hidden rounded-2xl border-2 border-blue-100 bg-gradient-to-br from-blue-50 to-blue-100 p-8 shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:border-blue-200 md:flex-row" id="personal-card-container">
+
+      <!-- Glow Effect -->
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-200 to-transparent opacity-0 transition-opacity duration-500 hover:opacity-30"></div>
+  
+      <!-- Left Section -->
+      <div class="z-10 flex flex-col items-center space-y-4 lg:flex-row lg:space-x-6 lg:space-y-0">
+          <!-- Icon Container -->
+          <div class="flex w-24 flex-shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-md transition-all hover:scale-105">
+              <!-- <span class="material-symbols-outlined text-4xl text-blue-600">account_balance
+              </span> -->
+             
+              <img
+                    id="userImage"
+                    src="./images/default-avatar.png"
+                    alt="user Avater"
+                    class="h-auto w-full object-center"
+                  />
+          </div>
+  
+          <!-- Account Details -->
+          <div>
+              <span class="inline-flex flex-col items-center text-2xl font-bold text-blue-900 lg:flex lg:flex-row" id="personal-card">Loading...</span>
+              <div class="flex items-center justify-center lg:justify-start">
+                <span class="mt-1 block text-xl font-semibold text-blue-700"><span id="personal-balance">Loading...</span> <span id="balance-value"></span></span>
+                <button title="Toggle balance visibility" 
+                  onclick="toggleBalanceVisibility()"
+                  class="material-symbols-outlined toggle-visibility-btn ml-3 mt-3 flex h-4 scale-[0.90] items-center justify-center text-blue-400">
+                  visibility_off
+                </button>
+              </div>
+  
+              <!-- Last 10 Transactions Section -->
+              <div class="mt-6 border-t border-blue-200 pt-4">
+                  <div class="flex items-center">
+                      <span class="text-lg font-bold text-blue-800">Recent Transactions</span>
+                      <button title="View Last 10 Transactions" 
+                              onclick="showLastTenTransactions()"
+                              class="material-symbols-outlined ml-3 flex h-4 scale-[0.90] items-center justify-center pt-1 text-blue-400">
+                          visibility
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <!-- Right Section -->
+      <div class="z-10 mt-6 flex flex-col items-center gap-3 md:mt-0">
+          <div class="flex w-[240px] flex-col items-center justify-center space-y-3">
+              <span class="flex items-center text-center text-3xl font-extrabold tracking-wider text-blue-900" id="personalwe-card">Loading...</span>
+              <div class="flex items-center">
+                  <span id="sendbankname" class="rounded-full bg-white px-6 py-2 text-center text-xl font-bold text-blue-600">Loading...</span>
+              </div>
+          </div>
+      </div>
+  
+      <!-- Decorative Waves -->
+      <div class="absolute bottom-0 left-0 right-0 h-12 rotate-180 transform bg-blue-200 opacity-20"></div>
+  </div>
+    
+    <!-- Membership Cards -->
+    <section id="membership-container" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <!-- Membership heading + select -->
+      <div class="membership-heading col-span-3 mb-2 flex flex-col justify-between gap-4 text-xl font-semibold md:flex-row md:items-center">
+        <span>Memberships</span>
+        <select id="membershipSelect" class="rounded border border-gray-300 p-2 text-sm">
+          <option value="">-- Select Membership --</option>
+          <!-- Options dynamically injected via JS -->
+        </select>
+      </div>
+
+      <div id="membership-details-cards" class="col-span-3 hidden gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <!-- Savings Card -->
+        <div class="cp flex flex-col items-center rounded-lg bg-white p-5 shadow transition-all hover:scale-[1.1]">
+          <div class="flex items-center">
+            <div class="mr-6 inline-flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-purple-100 text-purple-600">
+              <span class="material-symbols-outlined">savings</span>
+            </div>
+            <div>
+              <span class="card-val block text-xl font-bold" id="savings-card">Savings Account</span>
+              <div class="account-number text-sm text-gray-500" id="savings-account-number"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loan Card -->
+        <div class="cp flex flex-col items-center rounded-lg bg-white p-5 shadow transition-all hover:scale-[1.1]">
+          <div class="flex items-center">
+            <div class="mr-6 inline-flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-red-100 text-red-600">
+              <span class="material-symbols-outlined">credit_card</span>
+            </div>
+            <div>
+              <span class="card-val block text-xl font-bold" id="loan-card">Loans Account</span>
+              <div class="account-number text-sm text-gray-500" id="loan-account-number"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Property Card (no withdrawal) -->
+        <div class="cp flex flex-col items-center rounded-lg bg-white p-5 shadow transition-all hover:scale-[1.1]">
+          <div class="flex items-center">
+            <div class="mr-6 inline-flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-green-600">
+              <span class="material-symbols-outlined">home</span>
+            </div>
+            <div>
+              <span class="card-val block text-xl font-bold" id="property-card">Property Account</span>
+              <div class="account-number text-sm text-gray-500" id="property-account-number"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rotary Card -->
+        <div class="cp flex flex-col items-center rounded-lg bg-white p-5 shadow transition-all hover:scale-[1.1]">
+          <div class="flex items-center">
+            <div class="mr-6 inline-flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+              <span class="material-symbols-outlined">volunteer_activism</span>
+            </div>
+            <div>
+              <span class="card-val block text-xl font-bold" id="rotary-card">Rotary Account</span>
+              <div class="account-number text-sm text-gray-500" id="rotary-account-number"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Below the cards, a div will be displayed to show the details -->
+      <div id="membership-details-view" class="col-span-3 hidden">
+        <h3 class="mb-4 text-xl font-bold" id="details-header">Savings account details</h3>
+        <div id="savings-details-container" class="flex flex-col gap-x-4 space-y-6 lg:flex-row lg:space-y-0">
+          <!-- Savings Account Details and Transactions will be injected here -->
+        </div>
+        <div id="rotary-details-container" class="flex flex-col gap-x-4 space-y-6 lg:flex-row lg:space-y-0">
+          <!-- Rotary Account Details and Transactions will be injected here -->
+        </div>
+        <div id="loan-details-container" class="flex flex-col gap-x-4 space-y-6 lg:flex-row lg:space-y-0">
+          <!-- Loan Account Details and Transactions will be injected here -->
+        </div>
+        <div id="property-details-container" class="flex flex-col gap-x-4 space-y-6 lg:flex-row lg:space-y-0">
+          <!-- Property Account Details and Transactions will be injected here -->
+        </div>
+        <div id="additional-details" class="col-span-3 mt-6 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 p-6 text-white shadow-lg">
+          <p class="text-lg font-semibold">Summary:</p>
+          <!-- Text/summary details will be injected here -->
+        </div>
+      </div>
+    </section>
+  
+    <section class="text-right font-semibold text-gray-500">
+      <a href="#" class="text-xs text-green-600 hover:underline">all rights reserved</a>
+    </section>
+  </main>
+</div> 

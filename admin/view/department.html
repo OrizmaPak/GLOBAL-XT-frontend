@@ -1,0 +1,202 @@
+<div class="relative animate__animated animate__fadeIn">
+  <p class="page-title">
+    <span>Category</span>
+  </p>
+
+  <ul
+    class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
+  >
+    <li
+      class="cp viewer optioner active me-2 !text-blue-600"
+      name="viewdepartment"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block p-4 capitalize rounded-t-lg hover:bg-gray-50 hover:text-gray-600"
+      >
+        View Category
+      </p>
+    </li>
+    <li
+      class="cp updater optioner me-2"
+      name="departmentform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block p-4 capitalize rounded-t-lg hover:bg-gray-50 hover:text-gray-600"
+      >
+        Manage Category
+      </p>
+    </li>
+  </ul>
+
+  <form id="departmentform" class="hidden">
+    <div class="flex flex-col p-5 space-y-3 rounded-sm bg-white/90 xl:p-10">
+      <div class="form-group">
+        <label for="department" class="control-label">Category</label>
+        <input
+          type="text"
+          name="department"
+          id="department"
+          class="form-control comp"
+          placeholder="Enter Department Name"
+        />
+      </div>
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div class="form-group">
+            <label for="category" class="control-label">Category</label>
+            <select name="category" id="category" class="form-control comp">
+              <option value="">-- SELECT CATEGORY --</option>
+              <option>OFFICE</option>
+              <option>STORE</option>
+              <option>IT</option>
+              <option>MOBILE UNIT</option>
+              <option disabled>OTHER</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="applyforsales" class="control-label"
+              >Apply for Sales</label
+            >
+            <select
+              name="applyforsales"
+              id="applyforsales"
+              class="form-control comp"
+            >
+              <option value="JUST DEPARTMENT">JUST DEPARTMENT</option>
+              <option value="STOCK">STOCK</option>
+              <option value="NON STOCK">NON STOCK</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div class="form-group">
+            <label for="branch" class="control-label">Branch</label>
+            <select name="branch" id="branch" class="form-controls comp">
+              <option value="">-- select branch --</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="userid" class="control-label">Supervisor</label>
+            <select name="userid" id="userid" class="form-controls">
+              <option value="">-- select user --</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div class="form-group">
+          <label for="shortdesc" class="control-label">Short Description</label>
+          <input
+            type="text"
+            name="shortdesc"
+            id="shortdesc"
+            class="form-control "
+            placeholder="Enter Short Description"
+          />
+        </div>
+        <div class="form-group">
+          <label for="image" class="control-label">Upload Image</label>
+          <div id="imagePreview"></div>
+          <input
+            type="file"
+            name="image"
+            id="image"
+            class="form-control "
+            onchange="previewImage('image')"
+          />
+        </div>
+      </div>
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div></div>
+        <div></div>
+        <div class="flex justify-end mt-5">
+          <button id="submit" type="button" class="btn">
+            <div class="btnloader" style="display: none"></div>
+            <span>Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <hr class="my-10" />
+  </form>
+
+  <div id="viewdepartment">
+    <form id="departmentfilterform" class="">
+      <div class="flex flex-col p-5 space-y-3 bg-blue-100 rounded-sm xl:p-10">
+        <div class="form-group">
+          <label for="q" class="control-label">Enter any data in mind</label>
+          <input
+            type="text"
+            name="q"
+            id="q"
+            class="bg-white form-control comp"
+            placeholder="Enter Query"
+          />
+        </div>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div class="form-group">
+            <label for="filter-branch" class="control-label">Branch</label>
+            <select
+              name="filter-branch"
+              id="filter-branch"
+              class="form-controls comp1"
+            >
+              <option value="" disabled selected>-- Select Branch --</option>
+              <!-- Add options here -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="userid" class="control-label">Supervisor</label>
+            <select
+              name="userid"
+              id="filteruserid"
+              class="form-controls"
+              placeholder="Enter Supervisor"
+            ></select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <div></div>
+          <div></div>
+          <div class="flex justify-end mt-5">
+            <button id="filter" type="button" class="btn">
+              <div class="btnloader" style="display: none"></div>
+              <span>Search</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="table-content">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>banner</th>
+            <th>Category Name</th>
+            <th>short description</th>
+            <th>catgory</th>
+            <th>apply for sales</th>
+            <th>Branch</th>
+            <th>SUPERVISOR</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+</div>

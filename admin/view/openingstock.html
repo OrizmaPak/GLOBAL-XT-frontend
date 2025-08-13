@@ -1,0 +1,103 @@
+<section class="animate__animated animate__fadeIn">
+    <p class="page-title">
+        <span>OPEN STOCK</span>
+    </p>
+
+    <div class="mb-3 flex w-full justify-end gap-4">
+        <button
+          onclick="printContent('Opening Stock', null, 'viewopeningstock', true)"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">print</span>
+        </button>
+    
+        <button
+          onclick="exportToPDF('viewopeningstock')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">picture_as_pdf</span>
+        </button>
+    
+        <button
+          onclick="exportToExcel('viewopeningstock', 'opening_stock_list')"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 text-gray-600 transition duration-300 ease-in-out hover:border-gray-400 hover:bg-gray-100"
+        >
+          <div class="btnloader" style="display: none"></div>
+          <span class="material-icons">file_download</span>
+        </button>
+      </div>
+
+    <form id="openingstockform">
+        <div class="flex flex-col space-y-3 rounded-sm bg-blue-100 p-5 xl:p-10">
+            <!-- <div class="form-group">
+                <label for="itemname1" class="control-label">Item Name</label>
+                <select type="text" name="itemid" id="itemidsearch" class="form-controls bg-white" placeholder="Search by Item Name">
+                    <option value="">-- Select Item --</option>
+                </select>
+            </div> -->
+            <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                <div class="form-group">
+                    <label for="branch" class="control-label">Branch</label>
+                    <select name="branch" id="branchsearch" class="form-controls s comp bg-white">
+                        <option value="">-- Select Branch --</option>
+                        <!-- Options will be dynamically populated -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="department" class="control-label">Department</label>
+                    <select name="department" id="departmentsearch" class="form-control s comp bg-white">
+                        <option value="">-- Select Department --</option>
+                        <!-- Options will be dynamically populated -->
+                    </select>
+                </div>
+                <div class="mt-5 flex justify-end">
+                    <button id="submit" type="button" class="btn h-[40px]">
+                       <div class="btnloader" style="display: none;"></div>
+                       <span>Get Inventories</span>
+                   </button>
+                </div>
+            </div>
+            <div class="mt-5 flex justify-end">
+                <!-- <button id="submit" type="button" class="flex w-full items-center justify-center gap-3 rounded-md bg-gradient-to-tr from-blue-400 via-blue-500 to-primary-g px-8 py-3 text-sm font-medium capitalize text-white shadow-md transition duration-300 ease-in-out hover:opacity-75 md:w-max lg:py-2">-->
+                <!--    <div class="btnloader" style="display: none;"></div>-->
+                <!--    <span>Submit</span>-->
+                <!--</button>-->
+            </div>
+        </div>
+    </form>
+        
+</form>  
+    </div>
+    
+     <div class="viewopeningstock">
+        <div class="table-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>s/n</th>
+                        <th>Item Name</th>
+                        <th>BEGIN BALANCE</th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mt-5 flex w-full justify-end">
+                <button id="updateinventories" type="button" class="flex w-full items-center justify-center gap-3 rounded-md bg-gradient-to-tr from-blue-400 via-blue-500 to-primary-g px-8 py-3 text-sm font-medium capitalize text-white shadow-md transition duration-300 ease-in-out hover:opacity-75 md:w-max lg:py-2">
+                   <div class="btnloader" style="display: none;"></div>
+                   <span>Update Minimum Balance</span>
+                </button>
+            </div>
+        </div>
+        <div class="table-status"></div>
+    </div>
+
+        </section> 
