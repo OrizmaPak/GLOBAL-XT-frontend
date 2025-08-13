@@ -2464,315 +2464,68 @@
 														</div>
 													</div>
 												</section>
+												<!-- ========== DEPARTMENT BANNERS (dynamic) ========== -->
 												<section
-													class="elementor-section elementor-top-section elementor-element elementor-element-b694086 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default tm-col-stretched-none tm-bg-color-over-image"
-													data-id="b694086" data-element_type="section"
-													data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
-													<div class="elementor-container elementor-column-gap-narrow">
-														<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-fd411b4 tm-bg-color-over-image"
-															data-id="fd411b4" data-element_type="column">
-															<div
-																class="elementor-widget-wrap elementor-element-populated">
-																<div class="elementor-element elementor-element-67a3585 elementor-widget elementor-widget-qi_addons_for_elementor_interactive_banner"
-																	data-id="67a3585" data-element_type="widget"
-																	data-widget_type="qi_addons_for_elementor_interactive_banner.default">
-																	<div class="elementor-widget-container">
-																		<div
-																			class="qodef-shortcode qodef-m qodef-qi-interactive-banner qodef-layout--from-bottom">
-																			<div class="qodef-m-image">
-																				<img loading="lazy" decoding="async"
-																					width="600" height="400"
-																					src="../wp-content/uploads/2022/03/shop-banner-sqr-img1.jpg"
-																					class="attachment-qi_addons_for_elementor_image_size_huge-square size-qi_addons_for_elementor_image_size_huge-square"
-																					alt=""
-																					srcset="../wp-content/uploads/2022/03/shop-banner-sqr-img1.jpg 600w, ../wp-content/uploads/2022/03/shop-banner-sqr-img1-300x200.jpg 300w"
-																					sizes="(max-width: 600px) 100vw, 600px" />
-																			</div>
-																			<div class="qodef-m-content">
-																				<a itemprop="url" href="#"
-																					class="qodef-m-banner-link"
-																					target="_self"></a>
-																				<div class="qodef-m-content-inner">
-																					<div class="qodef-m-movement">
-																						<h6 class="qodef-m-subtitle">
-																							short detail </h6>
-																						<h3 class="qodef-m-title">
-																							Black Friday </h3>
-																						<div
-																							class="qodef-m-text-holder">
-																							<div class="qodef-m-button">
-																								<a class="qodef-shortcode qodef-m qodef-qi-button qodef-html--link qodef-layout--textual qodef-type--standard qodef-icon--right qodef-hover--icon-move-horizontal-short qodef-text-underline qodef-underline--left"
-																									href="#"
-																									target="_self">
-																									<span
-																										class="qodef-m-text">View</span> </a>
-																							</div>
-																						</div>
-																						<a itemprop="url" href="#"
-																							class="qodef-m-banner-link"
-																							target="_self"></a>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
+												id="dept-banners-section"
+												class="elementor-section elementor-top-section elementor-element elementor-element-b694086 elementor-section-full_width elementor-section-stretched elementor-section-height-default tm-col-stretched-none tm-bg-color-over-image"
+												data-id="b694086"
+												data-element_type="section"
+												data-settings='{"stretch_section":"section-stretched"}'>
+
+												<!-- Grid container; JS will inject rows of 3 -->
+												<div id="department-banners" class="elementor-container elementor-column-gap-narrow">
+													<!-- Cards will be injected here -->
+												</div>
+
+												<!-- Template for one banner card -->
+												<template id="deptBannerTpl">
+													<div class="elementor-column elementor-col-33 elementor-top-column tm-bg-color-over-image">
+													<div class="elementor-widget-wrap elementor-element-populated">
+														<div class="elementor-widget elementor-widget-qi_addons_for_elementor_interactive_banner">
+														<div class="elementor-widget-container">
+															<div class="qodef-shortcode qodef-m qodef-qi-interactive-banner qodef-layout--from-bottom">
+															<div class="qodef-m-image">
+																<!-- image -->
+																<img class="qodef-m-image-el" loading="lazy" decoding="async" width="600" height="400" alt="" />
 															</div>
+
+															<div class="qodef-m-content">
+																<!-- overlay link -->
+																<a class="qodef-m-banner-link" target="_self"></a>
+
+																<div class="qodef-m-content-inner">
+																<div class="qodef-m-movement">
+																	<!-- shortdesc -->
+																	<h6 class="qodef-m-subtitle js-subtitle">short detail</h6>
+																	<!-- department name -->
+																	<h3 class="qodef-m-title js-title">Department</h3>
+
+																	<div class="qodef-m-text-holder">
+																	<div class="qodef-m-button">
+																		<a class="qodef-shortcode qodef-m qodef-qi-button qodef-html--link qodef-layout--textual qodef-type--standard qodef-icon--right qodef-hover--icon-move-horizontal-short qodef-text-underline qodef-underline--left js-cta" target="_self">
+																		<span class="qodef-m-text">View</span>
+																		</a>
+																	</div>
+																	</div>
+
+																	<!-- second overlay (kept for theme behavior) -->
+																	<a class="qodef-m-banner-link" target="_self"></a>
+																</div>
+																</div>
+															</div> <!-- /.qodef-m-content -->
+															</div> <!-- /.qodef-qi-interactive-banner -->
 														</div>
-														<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-715c19d tm-bg-color-over-image"
-															data-id="715c19d" data-element_type="column">
-															<div
-																class="elementor-widget-wrap elementor-element-populated">
-																<div class="elementor-element elementor-element-f3e04bc elementor-widget elementor-widget-qi_addons_for_elementor_interactive_banner"
-																	data-id="f3e04bc" data-element_type="widget"
-																	data-widget_type="qi_addons_for_elementor_interactive_banner.default">
-																	<div class="elementor-widget-container">
-																		<div
-																			class="qodef-shortcode qodef-m qodef-qi-interactive-banner qodef-layout--from-bottom">
-																			<div class="qodef-m-image">
-																				<img loading="lazy" decoding="async"
-																					width="600" height="400"
-																					src="../wp-content/uploads/2022/03/shop-banner-sqr-img3.jpg"
-																					class="attachment-full size-full"
-																					alt=""
-																					srcset="../wp-content/uploads/2022/03/shop-banner-sqr-img3.jpg 600w, ../wp-content/uploads/2022/03/shop-banner-sqr-img3-300x200.jpg 300w"
-																					sizes="(max-width: 600px) 100vw, 600px" />
-																			</div>
-																			<div class="qodef-m-content">
-																				<a itemprop="url" href="#"
-																					class="qodef-m-banner-link"
-																					target="_self"></a>
-																				<div class="qodef-m-content-inner">
-																					<div class="qodef-m-movement">
-																						<h6 class="qodef-m-subtitle">
-																							short detail </h6>
-																						<h3 class="qodef-m-title">
-																							Flash Sell </h3>
-																						<div
-																							class="qodef-m-text-holder">
-																							<div class="qodef-m-button">
-																								<a class="qodef-shortcode qodef-m qodef-qi-button qodef-html--link qodef-layout--textual qodef-type--standard qodef-icon--right qodef-hover--icon-move-horizontal-short qodef-text-underline qodef-underline--left"
-																									href="#"
-																									target="_self">
-																									<span
-																										class="qodef-m-text">View</span> </a>
-																							</div>
-																						</div>
-																						<a itemprop="url" href="#"
-																							class="qodef-m-banner-link"
-																							target="_self"></a>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-3557136 tm-bg-color-over-image"
-															data-id="3557136" data-element_type="column">
-															<div
-																class="elementor-widget-wrap elementor-element-populated">
-																<div class="elementor-element elementor-element-f6c1246 elementor-widget elementor-widget-qi_addons_for_elementor_interactive_banner"
-																	data-id="f6c1246" data-element_type="widget"
-																	data-widget_type="qi_addons_for_elementor_interactive_banner.default">
-																	<div class="elementor-widget-container">
-																		<div
-																			class="qodef-shortcode qodef-m qodef-qi-interactive-banner qodef-layout--from-bottom">
-																			<div class="qodef-m-image">
-																				<img loading="lazy" decoding="async"
-																					width="600" height="400"
-																					src="../wp-content/uploads/2022/03/shop-banner-sqr-img2.jpg"
-																					class="attachment-full size-full"
-																					alt=""
-																					srcset="../wp-content/uploads/2022/03/shop-banner-sqr-img2.jpg 600w, ../wp-content/uploads/2022/03/shop-banner-sqr-img2-300x200.jpg 300w"
-																					sizes="(max-width: 600px) 100vw, 600px" />
-																			</div>
-																			<div class="qodef-m-content">
-																				<a itemprop="url" href="#"
-																					class="qodef-m-banner-link"
-																					target="_self"></a>
-																				<div class="qodef-m-content-inner">
-																					<div class="qodef-m-movement">
-																						<h6 class="qodef-m-subtitle">
-																							short detail </h6>
-																						<h3 class="qodef-m-title">
-																							Fresh Fruit </h3>
-																						<div
-																							class="qodef-m-text-holder">
-																							<div class="qodef-m-button">
-																								<a class="qodef-shortcode qodef-m qodef-qi-button qodef-html--link qodef-layout--textual qodef-type--standard qodef-icon--right qodef-hover--icon-move-horizontal-short qodef-text-underline qodef-underline--left"
-																									href="#"
-																									target="_self">
-																									<span
-																										class="qodef-m-text">View</span> </a>
-																							</div>
-																						</div>
-																						<a itemprop="url" href="#"
-																							class="qodef-m-banner-link"
-																							target="_self"></a>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
 														</div>
 													</div>
-													<div class="elementor-container elementor-column-gap-narrow">
-														<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-fd411b4 tm-bg-color-over-image"
-															data-id="fd411b4" data-element_type="column">
-															<div
-																class="elementor-widget-wrap elementor-element-populated">
-																<div class="elementor-element elementor-element-67a3585 elementor-widget elementor-widget-qi_addons_for_elementor_interactive_banner"
-																	data-id="67a3585" data-element_type="widget"
-																	data-widget_type="qi_addons_for_elementor_interactive_banner.default">
-																	<div class="elementor-widget-container">
-																		<div
-																			class="qodef-shortcode qodef-m qodef-qi-interactive-banner qodef-layout--from-bottom">
-																			<div class="qodef-m-image">
-																				<img loading="lazy" decoding="async"
-																					width="600" height="400"
-																					src="../wp-content/uploads/2022/03/shop-banner-sqr-img1.jpg"
-																					class="attachment-qi_addons_for_elementor_image_size_huge-square size-qi_addons_for_elementor_image_size_huge-square"
-																					alt=""
-																					srcset="../wp-content/uploads/2022/03/shop-banner-sqr-img1.jpg 600w, ../wp-content/uploads/2022/03/shop-banner-sqr-img1-300x200.jpg 300w"
-																					sizes="(max-width: 600px) 100vw, 600px" />
-																			</div>
-																			<div class="qodef-m-content">
-																				<a itemprop="url" href="#"
-																					class="qodef-m-banner-link"
-																					target="_self"></a>
-																				<div class="qodef-m-content-inner">
-																					<div class="qodef-m-movement">
-																						<h6 class="qodef-m-subtitle">
-																							short detail </h6>
-																						<h3 class="qodef-m-title">
-																							Black Friday </h3>
-																						<div
-																							class="qodef-m-text-holder">
-																							<div class="qodef-m-button">
-																								<a class="qodef-shortcode qodef-m qodef-qi-button qodef-html--link qodef-layout--textual qodef-type--standard qodef-icon--right qodef-hover--icon-move-horizontal-short qodef-text-underline qodef-underline--left"
-																									href="#"
-																									target="_self">
-																									<span
-																										class="qodef-m-text">View</span> </a>
-																							</div>
-																						</div>
-																						<a itemprop="url" href="#"
-																							class="qodef-m-banner-link"
-																							target="_self"></a>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-715c19d tm-bg-color-over-image"
-															data-id="715c19d" data-element_type="column">
-															<div
-																class="elementor-widget-wrap elementor-element-populated">
-																<div class="elementor-element elementor-element-f3e04bc elementor-widget elementor-widget-qi_addons_for_elementor_interactive_banner"
-																	data-id="f3e04bc" data-element_type="widget"
-																	data-widget_type="qi_addons_for_elementor_interactive_banner.default">
-																	<div class="elementor-widget-container">
-																		<div
-																			class="qodef-shortcode qodef-m qodef-qi-interactive-banner qodef-layout--from-bottom">
-																			<div class="qodef-m-image">
-																				<img loading="lazy" decoding="async"
-																					width="600" height="400"
-																					src="../wp-content/uploads/2022/03/shop-banner-sqr-img3.jpg"
-																					class="attachment-full size-full"
-																					alt=""
-																					srcset="../wp-content/uploads/2022/03/shop-banner-sqr-img3.jpg 600w, ../wp-content/uploads/2022/03/shop-banner-sqr-img3-300x200.jpg 300w"
-																					sizes="(max-width: 600px) 100vw, 600px" />
-																			</div>
-																			<div class="qodef-m-content">
-																				<a itemprop="url" href="#"
-																					class="qodef-m-banner-link"
-																					target="_self"></a>
-																				<div class="qodef-m-content-inner">
-																					<div class="qodef-m-movement">
-																						<h6 class="qodef-m-subtitle">
-																							short detail </h6>
-																						<h3 class="qodef-m-title">
-																							Flash Sell </h3>
-																						<div
-																							class="qodef-m-text-holder">
-																							<div class="qodef-m-button">
-																								<a class="qodef-shortcode qodef-m qodef-qi-button qodef-html--link qodef-layout--textual qodef-type--standard qodef-icon--right qodef-hover--icon-move-horizontal-short qodef-text-underline qodef-underline--left"
-																									href="#"
-																									target="_self">
-																									<span
-																										class="qodef-m-text">View</span> </a>
-																							</div>
-																						</div>
-																						<a itemprop="url" href="#"
-																							class="qodef-m-banner-link"
-																							target="_self"></a>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-3557136 tm-bg-color-over-image"
-															data-id="3557136" data-element_type="column">
-															<div
-																class="elementor-widget-wrap elementor-element-populated">
-																<div class="elementor-element elementor-element-f6c1246 elementor-widget elementor-widget-qi_addons_for_elementor_interactive_banner"
-																	data-id="f6c1246" data-element_type="widget"
-																	data-widget_type="qi_addons_for_elementor_interactive_banner.default">
-																	<div class="elementor-widget-container">
-																		<div
-																			class="qodef-shortcode qodef-m qodef-qi-interactive-banner qodef-layout--from-bottom">
-																			<div class="qodef-m-image">
-																				<img loading="lazy" decoding="async"
-																					width="600" height="400"
-																					src="../wp-content/uploads/2022/03/shop-banner-sqr-img2.jpg"
-																					class="attachment-full size-full"
-																					alt=""
-																					srcset="../wp-content/uploads/2022/03/shop-banner-sqr-img2.jpg 600w, ../wp-content/uploads/2022/03/shop-banner-sqr-img2-300x200.jpg 300w"
-																					sizes="(max-width: 600px) 100vw, 600px" />
-																			</div>
-																			<div class="qodef-m-content">
-																				<a itemprop="url" href="#"
-																					class="qodef-m-banner-link"
-																					target="_self"></a>
-																				<div class="qodef-m-content-inner">
-																					<div class="qodef-m-movement">
-																						<h6 class="qodef-m-subtitle">
-																							short detail </h6>
-																						<h3 class="qodef-m-title">
-																							Fresh Fruit </h3>
-																						<div
-																							class="qodef-m-text-holder">
-																							<div class="qodef-m-button">
-																								<a class="qodef-shortcode qodef-m qodef-qi-button qodef-html--link qodef-layout--textual qodef-type--standard qodef-icon--right qodef-hover--icon-move-horizontal-short qodef-text-underline qodef-underline--left"
-																									href="#"
-																									target="_self">
-																									<span
-																										class="qodef-m-text">View</span> </a>
-																							</div>
-																						</div>
-																						<a itemprop="url" href="#"
-																							class="qodef-m-banner-link"
-																							target="_self"></a>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
 													</div>
+												</template>
+
+												<!-- Optional empty state -->
+												<div id="dept-banners-empty" style="display:none; padding:2rem; text-align:center;">
+													<em>No departments available.</em>
+												</div>
 												</section>
+
 												<section id="aboutus"
 													class="elementor-section elementor-top-section elementor-element elementor-element-01743f7 elementor-section-stretched elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default tm-col-stretched-none tm-bg-color-over-image"
 													data-id="01743f7" data-element_type="section"
@@ -5824,6 +5577,7 @@
 	</script>
 	<!-- Instagram Feed JS -->
 	<script type="text/javascript" src="../js/index.js"></script>
+	<script type="text/javascript" src="../js/home.js"></script>
 	<script type="text/javascript">
 		var sbiajaxurl = "https://wp2022.kodesolution.com/organek/wp-admin/admin-ajax.php";
 	</script>
