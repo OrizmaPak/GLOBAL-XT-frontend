@@ -97,7 +97,7 @@ async function fetchdepartment(id) {
     } else {
       document.getElementsByClassName("updater")[0].click();
       departmentid = request.data[0].id;
-      populateData(request.data[0], ['image'], ['imagePreview']);
+      populateData(request.data[0], ['image']);
     }
   } else {
     return notification("No records retrieved");

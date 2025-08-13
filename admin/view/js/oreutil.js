@@ -216,6 +216,7 @@ function populateData(data, img=[], locate=[], form='', deep=false) {
             if (inputElement) {
                 // Check if the input is a file input
                 if (img.length > 0 && img.includes(mappedKeys[i]) && mappedValues[i]) {
+                    alert()
                     // Create img element and set its src attribute
                     const imgElement = document.createElement('img');
                     imgElement.src = `${mappedValues[i]}`;

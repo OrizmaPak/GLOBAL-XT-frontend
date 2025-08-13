@@ -1683,7 +1683,7 @@ We connect local farmers to international buyers — with integrity, quality, an
 
 
 document.addEventListener('DOMContentLoaded', function() {
-fetch(`${baseurl}/node/api/v1/admin/department`)
+fetch(`${baseurl}/api/front/admin/department`)
     .then(response => response.json())
     .then(data => {
         console.log('Categories data:', data);
