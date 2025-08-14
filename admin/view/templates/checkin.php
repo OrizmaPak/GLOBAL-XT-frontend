@@ -977,7 +977,7 @@
                                                 
                                                 
                                                 <div class="flex justify-end mt-5">
-                                                     <button onclick="alert();fetchcheckinn('', '', 'checkinarrivalszzform')" type="button" class="btn">
+                                                     <button onclick="fetchcheckinn('', '', 'checkinarrivalszzform')" type="button" class="btn">
                                                         <div class="btnloader" style="display: none;"></div>
                                                         <span>Submit</span> 
                                                     </button>

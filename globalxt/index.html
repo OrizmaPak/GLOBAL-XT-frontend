@@ -2465,6 +2465,29 @@
 													</div>
 												</section>
 												<!-- ========== DEPARTMENT BANNERS (dynamic) ========== -->
+												<style>
+.qodef-qi-interactive-banner { position: relative; }
+.qodef-qi-interactive-banner .qodef-m-image { position: relative; z-index: 1; }
+.qodef-qi-interactive-banner .qodef-m-content { position: absolute; inset: 0; z-index: 2; opacity: 1 !important}
+
+.qodef-qi-interactive-banner.qodef--ready .qodef-m-content .qodef-m-movement {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform .35s ease, opacity .35s ease;
+}
+
+.qodef-qi-interactive-banner.qodef--ready:hover .qodef-m-content .qodef-m-movement {
+  transform: translateY(-10px);
+}
+
+.qodef-qi-interactive-banner .qodef-m-banner-link {
+  position: absolute; inset: 0; z-index: 3;
+  /* Let inner button still be clickable */
+  pointer-events: auto;
+}
+.qodef-qi-interactive-banner .qodef-m-button a { position: relative; z-index: 4; }
+
+													</style>
 												<section
 												id="dept-banners-section"
 												class="elementor-section elementor-top-section elementor-element elementor-element-b694086 elementor-section-full_width elementor-section-stretched elementor-section-height-default tm-col-stretched-none tm-bg-color-over-image"
@@ -2479,44 +2502,36 @@
 
 												<!-- Template for one banner card -->
 												<template id="deptBannerTpl">
-													<div class="elementor-column elementor-col-33 elementor-top-column tm-bg-color-over-image">
-													<div class="elementor-widget-wrap elementor-element-populated">
-														<div class="elementor-widget elementor-widget-qi_addons_for_elementor_interactive_banner">
-														<div class="elementor-widget-container">
-															<div class="qodef-shortcode qodef-m qodef-qi-interactive-banner qodef-layout--from-bottom">
-															<div class="qodef-m-image">
-																<!-- image -->
-																<img class="qodef-m-image-el" loading="lazy" decoding="async" width="600" height="400" alt="" />
+													<div class="elementor-column elementor-col-33 elementor-top-column elementor-element tm-bg-color-over-image" data-element_type="column">
+														<div class="elementor-widget-wrap elementor-element-populated">
+															<div class="elementor-widget elementor-widget-qi_addons_for_elementor_interactive_banner" data-widget_type="qi_addons_for_elementor_interactive_banner.default">
+																<div class="elementor-widget-container">
+																	<div class="qodef-shortcode qodef-m qodef-qi-interactive-banner qodef-layout--from-bottom">
+																		<div class="qodef-m-image">
+																			<img class="qodef-m-image-el attachment-full size-full" loading="lazy" decoding="async" width="600" height="400" alt="" />
+																		</div>
+
+																		<div class="qodef-m-content">
+																			<div class="qodef-m-content-inner">
+																				<div class="qodef-m-movement">
+																					<h6 class="qodef-m-subtitle js-subtitle">short detail</h6>
+																					<h3 class="qodef-m-title js-title">Department</h3>
+																					<div class="qodef-m-text-holder">
+																						<div class="qodef-m-button">
+																							<a class="qodef-shortcode qodef-m qodef-qi-button qodef-html--link qodef-layout--textual qodef-type--standard qodef-icon--right qodef-hover--icon-move-horizontal-short qodef-text-underline qodef-underline--left js-cta" target="_self">
+																								<span class="qodef-m-text">View</span>
+																							</a>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+
+																		<a class="qodef-m-banner-link" target="_self" aria-label="View"></a>
+																	</div>
+																</div>
 															</div>
-
-															<div class="qodef-m-content">
-																<!-- overlay link -->
-																<a class="qodef-m-banner-link" target="_self"></a>
-
-																<div class="qodef-m-content-inner">
-																<div class="qodef-m-movement">
-																	<!-- shortdesc -->
-																	<h6 class="qodef-m-subtitle js-subtitle">short detail</h6>
-																	<!-- department name -->
-																	<h3 class="qodef-m-title js-title">Department</h3>
-
-																	<div class="qodef-m-text-holder">
-																	<div class="qodef-m-button">
-																		<a class="qodef-shortcode qodef-m qodef-qi-button qodef-html--link qodef-layout--textual qodef-type--standard qodef-icon--right qodef-hover--icon-move-horizontal-short qodef-text-underline qodef-underline--left js-cta" target="_self">
-																		<span class="qodef-m-text">View</span>
-																		</a>
-																	</div>
-																	</div>
-
-																	<!-- second overlay (kept for theme behavior) -->
-																	<a class="qodef-m-banner-link" target="_self"></a>
-																</div>
-																</div>
-															</div> <!-- /.qodef-m-content -->
-															</div> <!-- /.qodef-qi-interactive-banner -->
 														</div>
-														</div>
-													</div>
 													</div>
 												</template>
 
@@ -5399,6 +5414,9 @@
 			
 		</footer>
 
+		<script type="text/javascript" src="../js/index.js"></script>
+	<script type="text/javascript" src="../js/home.js"></script>
+
 	</div>
 	<!-- wrapper end -->
 	<div class="tm-floating-woocart-wrapper woocommerce">
@@ -5576,8 +5594,7 @@
 		});
 	</script>
 	<!-- Instagram Feed JS -->
-	<script type="text/javascript" src="../js/index.js"></script>
-	<script type="text/javascript" src="../js/home.js"></script>
+	
 	<script type="text/javascript">
 		var sbiajaxurl = "https://wp2022.kodesolution.com/organek/wp-admin/admin-ajax.php";
 	</script>

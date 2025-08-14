@@ -1,6 +1,83 @@
 let createinventoryid
 let departmenthtml
 async function createinventoryActive() {
+    var quill1 = new Quill('#description-editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ 'font': [] }, { 'size': [] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'script': 'sub' }, { 'script': 'super' }],
+                ['blockquote', 'code-block'],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                [{ 'indent': '-1' }, { 'indent': '+1' }],
+                [{ 'direction': 'rtl' }],
+                [{ 'align': [] }],
+                ['link', 'image', 'video'],
+                ['clean']
+            ]
+        },
+        placeholder: 'Compose an epic...',
+        bounds: '#description-editor',
+        scrollingContainer: '#description-editor'
+    });
+
+    quill1.on('text-change', function() {
+        document.querySelector('input[name=description]').value = quill1.root.innerHTML;
+    });
+
+    var quill2 = new Quill('#productdescription-editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ 'font': [] }, { 'size': [] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'script': 'sub' }, { 'script': 'super' }],
+                ['blockquote', 'code-block'],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                [{ 'indent': '-1' }, { 'indent': '+1' }],
+                [{ 'direction': 'rtl' }],
+                [{ 'align': [] }],
+                ['link', 'image', 'video'],
+                ['clean']
+            ]
+        },
+        placeholder: 'Compose an epic...',
+        bounds: '#productdescription-editor',
+        scrollingContainer: '#productdescription-editor'
+    });
+
+    quill2.on('text-change', function() {
+        document.querySelector('input[name=productdescription]').value = quill2.root.innerHTML;
+    });
+
+    var quill3 = new Quill('#tradeprocess-editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ 'font': [] }, { 'size': [] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'script': 'sub' }, { 'script': 'super' }],
+                ['blockquote', 'code-block'],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                [{ 'indent': '-1' }, { 'indent': '+1' }],
+                [{ 'direction': 'rtl' }],
+                [{ 'align': [] }],
+                ['link', 'image', 'video'],
+                ['clean']
+            ]
+        },
+        placeholder: 'Compose an epic...',
+        bounds: '#tradeprocess-editor',
+        scrollingContainer: '#tradeprocess-editor'
+    });
+
+    quill3.on('text-change', function() {
+        document.querySelector('input[name=tradeprocess]').value = quill3.root.innerHTML;
+    });
     did('submit').addEventListener('click', createinventoryFormSubmitHandler) 
     datasource = []
     await getAllbranch(true);

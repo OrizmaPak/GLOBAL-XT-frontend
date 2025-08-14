@@ -57,9 +57,9 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="department" class="control-label">Department</label>
+                    <label for="department" class="control-label">Category</label>
                     <select name="department" id="departmentsearch" class="form-control s bg-white">
-                        <option value="">-- Select Department --</option>
+                        <option value="">-- Select Category --</option>
                         <!-- Options will be dynamically populated -->
                     </select>
                 </div>
@@ -171,19 +171,54 @@
                             <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
                                 <input type="hidden" name="itemid" id="itemid" class="form-control" onchange="previewImage('imageone')">
                                 <div class="form-group">
-                                    <label for="url" class="control-label">Item Image</label>
+                                    <label for="url" class="control-label">Item Image 1</label>
                                     <div id="imagePreview"></div>
                                     <input type="file" name="imageone" id="imageone" class="form-control" onchange="previewImage('imageone')">
                                 </div>  
                                 <div class="form-group">
-                                    <label for="url" class="control-label">Item Image</label>
+                                    <label for="url" class="control-label">Item Image 2</label>
                                     <div id="imagePreviewtwo"></div>
                                     <input type="file" name="imagetwo" id="imagetwo" class="form-control" onchange="previewImage('imagetwo', 'imagePreviewtwo')">
                                 </div>  
                                 <div class="form-group">
-                                    <label for="url" class="control-label">Item Image</label>
+                                    <label for="url" class="control-label">Item Image 3</label>
                                     <div id="imagePreviewthree"></div>
                                     <input type="file" name="imagethree" id="imagethree" class="form-control" onchange="previewImage('imagethree', 'imagePreviewthree')">
+                                </div>  
+                                <div class="form-group">
+                                    <label for="url" class="control-label">Item Image 4</label>
+                                    <div id="imagePreviewfour"></div>
+                                    <input type="file" name="imagefour" id="imagefour" class="form-control" onchange="previewImage('imagefour', 'imagePreviewfour')">
+                                </div>  
+                                <div class="form-group">
+                                    <label for="url" class="control-label">Item Image 5</label>
+                                    <div id="imagePreviewfive"></div>
+                                    <input type="file" name="imagefive" id="imagefive" class="form-control" onchange="previewImage('imagefive', 'imagePreviewfive')">
+                                </div>  
+                                <div class="form-group">
+                                    <label for="url" class="control-label">Item Image 6</label>
+                                    <div id="imagePreviewsix"></div>
+                                    <input type="file" name="imagesix" id="imagesix" class="form-control" onchange="previewImage('imagesix', 'imagePreviewsix')">
+                                </div>  
+                                <div class="form-group">
+                                    <label for="url" class="control-label">Item Image 7</label>
+                                    <div id="imagePreviewseven"></div>
+                                    <input type="file" name="imageseven" id="imageseven" class="form-control" onchange="previewImage('imageseven', 'imagePreviewseven')">
+                                </div>  
+                                <div class="form-group">
+                                    <label for="url" class="control-label">Item Image 8</label>
+                                    <div id="imagePrevieweight"></div>
+                                    <input type="file" name="imageeight" id="imageeight" class="form-control" onchange="previewImage('imageeight', 'imagePrevieweight')">
+                                </div>  
+                                <div class="form-group">
+                                    <label for="url" class="control-label">Item Image 9</label>
+                                    <div id="imagePreviewnine"></div>
+                                    <input type="file" name="imagenine" id="imagenine" class="form-control" onchange="previewImage('imagenine', 'imagePreviewnine')">
+                                </div>  
+                                <div class="form-group">
+                                    <label for="url" class="control-label">Item Image 10</label>
+                                    <div id="imagePreviewten"></div>
+                                    <input type="file" name="imageten" id="imageten" class="form-control" onchange="previewImage('imageten', 'imagePreviewten')">
                                 </div>  
                             </div> 
                             <div class="w- full grid grid-cols-1 gap-6">
@@ -191,7 +226,7 @@
                                     <label for="logoname" class="control-label flex justify-between">Item Name</label>
                                     <input type="text" name="itemname" class="form-control comp" placeholder="Enter Name of Item">
                                 </div>
-                                <label class="text-xl font-medium opacity-[0.7]">Department / Sales Point <br> <span class="text-xs text-red-500">Click on the department you want this update to take effect. if non is clicked all departments will inherit this update</span></label>    
+                                <label class="text-xl font-medium opacity-[0.7]">Category <br> <span class="text-xs text-red-500"></span></label>    
                                 <div id="departmt" class="flex h-fit min-h-[100px] flex-wrap rounded bg-[#5757570f] p-4">
                                     <div id="loading">Loading...</div> 
                                 </div>
@@ -266,11 +301,30 @@
                                     </div>
                                 </div> 
                             </div>
-                            <div class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 !pt-0 xl:p-10">
+                            <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 !pt-0 rounded-sm">
                                 <div class="grid grid-cols-1 gap-6">
                                     <div class="form-group">
-                                        <label for="logoname" class="control-label">Description</label>
-                                        <input type="text" name="description" class="form-control" placeholder="Enter Item Description">
+                                        <label for="logoname" class="control-label">Service Description</label>
+                                        <div id="description-editor" class="form-control" style="height: 450px;"></div>
+                                        <input type="hidden" name="description" id="description">
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 !pt-0 rounded-sm">
+                                <div class="grid grid-cols-1 gap-6">
+                                    <div class="form-group">
+                                        <label for="logoname" class="control-label">Product Description</label>
+                                        <div id="productdescription-editor" class="form-control" style="height: 450px;"></div>
+                                        <input type="hidden" name="productdescription" id="productdescription">
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 !pt-0 rounded-sm">
+                                <div class="grid grid-cols-1 gap-6">
+                                    <div class="form-group">
+                                        <label for="logoname" class="control-label">Trade Process</label>
+                                        <div id="tradeprocess-editor" class="form-control" style="height: 450px;"></div>
+                                        <input type="hidden" name="tradeprocess" id="tradeprocess">
                                     </div>
                                 </div> 
                             </div>
@@ -305,10 +359,7 @@
                     <tr>
                         <th>s/n</th>
                         <th>Item Name</th>
-                        <th>QTY in stock</th>
-                        <th>cost</th>
-                        <th>price</th>
-                        <th>price two</th>
+                        <th>category</th>
                         <th>units</th>
                         <th>applied to</th>
                         <th>Group name</th>

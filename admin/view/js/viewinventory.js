@@ -1,6 +1,86 @@
 let viewinventoryid
 let initialinventoryload
+let quill1
+let quill2
+let quill3
 async function viewinventoryActive() {
+    quill1 = new Quill('#description-editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ 'font': [] }, { 'size': [] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'script': 'sub' }, { 'script': 'super' }],
+                ['blockquote', 'code-block'],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                [{ 'indent': '-1' }, { 'indent': '+1' }],
+                [{ 'direction': 'rtl' }],
+                [{ 'align': [] }],
+                ['link', 'image', 'video'],
+                ['clean']
+            ]
+        },
+        placeholder: 'Compose an epic...',
+        bounds: '#description-editor',
+        scrollingContainer: '#description-editor'
+    });
+
+    quill1.on('text-change', function() {
+        document.querySelector('input[name=description]').value = quill1.root.innerHTML;
+    });
+
+    quill2 = new Quill('#productdescription-editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ 'font': [] }, { 'size': [] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'script': 'sub' }, { 'script': 'super' }],
+                ['blockquote', 'code-block'],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                [{ 'indent': '-1' }, { 'indent': '+1' }],
+                [{ 'direction': 'rtl' }],
+                [{ 'align': [] }],
+                ['link', 'image', 'video'],
+                ['clean']
+            ]
+        },
+        placeholder: 'Compose an epic...',
+        bounds: '#productdescription-editor',
+        scrollingContainer: '#productdescription-editor'
+    });
+
+    quill2.on('text-change', function() {
+        document.querySelector('input[name=productdescription]').value = quill2.root.innerHTML;
+    });
+
+    quill3 = new Quill('#tradeprocess-editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ 'font': [] }, { 'size': [] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'script': 'sub' }, { 'script': 'super' }],
+                ['blockquote', 'code-block'],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                [{ 'indent': '-1' }, { 'indent': '+1' }],
+                [{ 'direction': 'rtl' }],
+                [{ 'align': [] }],
+                ['link', 'image', 'video'],
+                ['clean']
+            ]
+        },
+        placeholder: 'Compose an epic...',
+        bounds: '#tradeprocess-editor',
+        scrollingContainer: '#tradeprocess-editor'
+    });
+
+    quill3.on('text-change', function() {
+        document.querySelector('input[name=tradeprocess]').value = quill3.root.innerHTML;
+    });
     initialinventoryload = ''
     const form = document.querySelector('#viewinventoryform')
     const form2 = document.querySelector('#createinventoryform')
@@ -92,14 +172,11 @@ async function onviewinventoryTableDataSignal() {
     <tr>
         <td>${item.index + 1 }</td>
         <td>${item.itemname}</td>
-        <td>${formatNumber(item.qty, 1, 0)}</td>
-        <td>${formatCurrency(item.cost)}</td>
-        <td>${formatCurrency(item.price)}</td>
-        <td>${formatCurrency(item.pricetwo)}</td>
+        <td>${item.departmentname}</td>
         <td>${item.units}</td>
         <td>${item.applyto}</td>
         <td>${item.group}</td>
-        <td>${item.description}</td>
+        <td>${item.description.substring(0, 200)}</td>
         <td class="flex items-center gap-3">
             <button title="Edit row entry" onclick="viewinventoryFormSubmitHandler('${item.itemid}', '${JSON.stringify(item).replaceAll("'", '').replaceAll('"', '~~~')}')" class="material-symbols-outlined rounded-full bg-primary-g h-8 w-8 text-white drop-shadow-md text-xs" style="font-size: 18px;">edit</button>
             <button title="Delete row entry"s onclick="removeviewinventory('${item.id}')" class="material-symbols-outlined rounded-full bg-red-600 h-8 w-8 text-white drop-shadow-md text-xs" style="font-size: 18px;">delete</button>
@@ -133,9 +210,9 @@ async function viewinventoryFormSubmitHandler(itemid=document.getElementById('it
     }
     
     let request
+    
 
-    if(!itemdata)request = await httpRequest2(`api/v1/inventory/getinventory?itemid=${itemid}&branch=${did('branchsearch').value}&department=${did('departmentsearch').value}`, null, document.querySelector('#viewinventoryform #submit'), 'json', 'GET');
-    else request = {data:[JSON.parse(itemdata.replaceAll('~~~', '"'))], status: true};
+    request = await httpRequest2(`api/v1/inventory/getinventory?itemid=${itemid}&branch=${did('branchsearch').value}&department=${did('departmentsearch').value}`, null, document.querySelector('#viewinventoryform #submit'), 'json', 'GET');
     console.log(request)
     Swal.close();
     
@@ -154,7 +231,23 @@ async function viewinventoryFormSubmitHandler(itemid=document.getElementById('it
         } else {
             viewinventoryid = itemid;
             await getinventorydepartment(false);
-            await populateData(request.data[0], ['imageone', 'imagetwo', 'imagethree'], [], 'createinventoryform', true);
+            await populateData(request.data[0], ['imageone', 'imagetwo', 'imagethree', 'imagefour', 'imagefive', 'imagesix', 'imageseven', 'imageeight', 'imagenine', 'imageten'], [], 'createinventoryform', true);
+            quill1.root.innerHTML = request.data[0].description || '';
+            console.log('quill', quill1.root.innerHTML, request.data[0].description);
+        const productDescriptionEditor = document.querySelector('#productdescription-editor').__quill;
+        if (productDescriptionEditor) {
+            productDescriptionEditor.root.innerHTML = request.data[0].productdescription || '';
+        }
+
+        const serviceDescriptionEditor = document.querySelector('#description-editor').__quill;
+        if (serviceDescriptionEditor) {
+            serviceDescriptionEditor.root.innerHTML = request.data[0].description || '';
+        }
+
+        const tradeProcessEditor = document.querySelector('#tradeprocess-editor').__quill;
+        if (tradeProcessEditor) {
+            tradeProcessEditor.root.innerHTML = request.data[0].tradeprocess || '';
+        }
             // let container = document.querySelector('#departmt');
             // request.data[0].department.split('||').map(data => {
             //     container.querySelector(`${data.id}`)[0].checked = true;
@@ -209,7 +302,6 @@ async function viewinventoryFormEditHandler(id='') {
         } else {
             notification(request.message, 1);
             viewinventoryid = request.data[0].itemid;
-            populateData(request.data[0]);
         }
     } else {
         return notification('No records retrieved');

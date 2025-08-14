@@ -79,17 +79,46 @@ function renderDepartmentBanners(departments = []) {
     if (titleEl) titleEl.textContent = safeTitle;
     if (subEl) subEl.textContent = safeDesc;
 
-    // Links (both overlay and button)
+    // Links: set href on the CTA and the full-card overlay link (last child)
     const href = buildDeptLink(dept);
-    node.querySelectorAll(".qodef-m-banner-link, .js-cta").forEach((a) => {
-      a.href = href;
-      a.setAttribute("aria-label", `View ${safeTitle}`);
-    });
+    const overlay = node.querySelector('.qodef-m-banner-link');
+    const cta = node.querySelector('.js-cta');
+
+    if (overlay) {
+      overlay.href = href;
+      overlay.setAttribute('aria-label', `View ${safeTitle}`);
+    }
+    if (cta) {
+      cta.href = href;
+      cta.setAttribute('aria-label', `View ${safeTitle}`);
+    }
 
     frag.appendChild(node);
   });
 
   container.appendChild(frag);
+  hydrateQiInteractiveBanners(container);
+}
+
+/**
+ * Re-init styles after dynamic inject (and provide a CSS fallback)
+ */
+function hydrateQiInteractiveBanners(scope = document) {
+  // Mark banners as ready (unlocks CSS fallback below)
+  scope.querySelectorAll('.qodef-qi-interactive-banner').forEach((card) => {
+    card.classList.add('qodef--ready');
+  });
+
+  // If the theme exposes a re-init hook, call it safely
+  try {
+    // Common Elementor/Qi hooks; guarded so it never crashes if absent
+    if (window.qiAddonsForElementor && typeof window.qiAddonsForElementor.qodefInit === 'function') {
+      window.qiAddonsForElementor.qodefInit(); // re-scan dynamic widgets
+    }
+    if (window.elementorFrontend && window.elementorFrontend.hooks) {
+      window.elementorFrontend.hooks.doAction('frontend/element_ready/global');
+    }
+  } catch (_) {}
 }
 
 /**
