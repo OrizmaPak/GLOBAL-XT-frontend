@@ -5,7 +5,9 @@ let orgData = JSON.parse(localStorage.getItem('orgData'));
 
 // });
 
-document.getElementById('preloader').style.display = 'none'
+setTimeout(() => {
+    document.getElementById('preloader').style.display = 'none';
+}, 4000);
 
 fetch(baseurl+'/api/front/admin/organizationsettings')
 .then(response => {
