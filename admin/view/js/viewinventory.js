@@ -191,9 +191,23 @@ async function viewinventoryFormSubmitHandler(itemid=document.getElementById('it
     did('imagePreview').innerHTML = '';
     did('imagePreviewtwo').innerHTML = '';
     did('imagePreviewthree').innerHTML = '';
+    did('imagePreviewfour').innerHTML = '';
+    did('imagePreviewfive').innerHTML = '';
+    did('imagePreviewsix').innerHTML = '';
+    did('imagePreviewseven').innerHTML = '';
+    did('imagePrevieweight').innerHTML = '';
+    did('imagePreviewnine').innerHTML = '';
+    did('imagePreviewten').innerHTML = '';
     did('imageone').value = '';
     did('imagetwo').value = ''; 
     did('imagethree').value = '';
+    did('imagefour').value = '';
+    did('imagefive').value = '';
+    did('imagesix').value = '';
+    did('imageseven').value = '';
+    did('imageeight').value = '';
+    did('imagenine').value = '';
+    did('imageten').value = '';
 
     // Show SweetAlert loading
     if(itemid)Swal.fire({
@@ -231,23 +245,25 @@ async function viewinventoryFormSubmitHandler(itemid=document.getElementById('it
         } else {
             viewinventoryid = itemid;
             await getinventorydepartment(false);
-            await populateData(request.data[0], ['imageone', 'imagetwo', 'imagethree', 'imagefour', 'imagefive', 'imagesix', 'imageseven', 'imageeight', 'imagenine', 'imageten'], [], 'createinventoryform', true);
             quill1.root.innerHTML = request.data[0].description || '';
+            quill2.root.innerHTML = request.data[0].productdescription || '';
+            quill3.root.innerHTML = request.data[0].tradeprocess || '';
             console.log('quill', quill1.root.innerHTML, request.data[0].description);
-        const productDescriptionEditor = document.querySelector('#productdescription-editor').__quill;
-        if (productDescriptionEditor) {
-            productDescriptionEditor.root.innerHTML = request.data[0].productdescription || '';
-        }
-
-        const serviceDescriptionEditor = document.querySelector('#description-editor').__quill;
-        if (serviceDescriptionEditor) {
-            serviceDescriptionEditor.root.innerHTML = request.data[0].description || '';
-        }
-
-        const tradeProcessEditor = document.querySelector('#tradeprocess-editor').__quill;
-        if (tradeProcessEditor) {
-            tradeProcessEditor.root.innerHTML = request.data[0].tradeprocess || '';
-        }
+        //     const productDescriptionEditor = document.querySelector('#productdescription-editor').__quill;
+        //     if (productDescriptionEditor) {
+        //     productDescriptionEditor.root.innerHTML = request.data[0].productdescription || '';
+        // }
+        
+        // const serviceDescriptionEditor = document.querySelector('#description-editor').__quill;
+        // if (serviceDescriptionEditor) {
+        //     serviceDescriptionEditor.root.innerHTML = request.data[0].description || 'fghjklkjhgf';
+        // }
+        
+        // const tradeProcessEditor = document.querySelector('#tradeprocess-editor').__quill;
+        // if (tradeProcessEditor) {
+        //     tradeProcessEditor.root.innerHTML = request.data[0].tradeprocess || '111111111';
+        // }
+        await populateData(request.data[0], ['imageone', 'imagetwo', 'imagethree', 'imagefour', 'imagefive', 'imagesix', 'imageseven', 'imageeight', 'imagenine', 'imageten'], [], 'createinventoryform', true);
             // let container = document.querySelector('#departmt');
             // request.data[0].department.split('||').map(data => {
             //     container.querySelector(`${data.id}`)[0].checked = true;

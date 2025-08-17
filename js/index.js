@@ -389,30 +389,12 @@ if(document.getElementById('header')){
                                                                 </li>															
                                                                 
                                                                 <li id="menu-item-52569"
-                                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-52569 ">
-                                                                    <a title="Shop" class="menu-item-link"
+                                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52569">
+                                                                    <a title="Products" class="menu-item-link"
                                                                         href="./shop.html"><span>Products</span>
                                                                     </a>
-                                                                    <ul class="dropdown">
-                                                                        <li id="menu-item-52570"
-                                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52570">
-                                                                            <a title="All Products"
-                                                                                class="menu-item-link"
-                                                                                href="https://wp2022.kodesolution.com/organek/shop/"><span>All
-                                                                                    Products</span></a> </li>
-                                                                        <li id="menu-item-52566"
-                                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52566">
-                                                                            <a title="Cart" class="menu-item-link"
-                                                                                href="https://wp2022.kodesolution.com/organek/cart/"><span>Cart</span></a>
-                                                                        </li>
-                                                                        <li id="menu-item-52567"
-                                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52567">
-                                                                            <a title="Checkout"
-                                                                                class="menu-item-link"
-                                                                                href="https://wp2022.kodesolution.com/organek/checkout/"><span>Checkout</span></a>
-                                                                        </li>
-                                                                    </ul>
                                                                 </li>
+                                                              
                                                             </ul>
                                                         </nav>
                                                     </div>
@@ -709,35 +691,18 @@ if(document.getElementById('header')){
                                                                     </a>
                                                                 </li>
                                                 
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-52569 ">
-                                                    <a title="Shop" class="menu-item-link"
+                                                <li id="menu-item-52569"
+                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52569">
+                                                    <a title="Products" class="menu-item-link"
                                                         href="./shop.html"><span>Products</span>
                                                     </a>
-                                                    <ul class="dropdown">
-                                                        <li
-                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52570">
-                                                            <a title="All Products" class="menu-item-link"
-                                                                href="https://wp2022.kodesolution.com/organek/shop/"><span>All
-                                                                    Products</span></a> </li>
-                                                        <li
-                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52566">
-                                                            <a title="Cart" class="menu-item-link"
-                                                                href="https://wp2022.kodesolution.com/organek/cart/"><span>Cart</span></a>
-                                                        </li>
-                                                        <li
-                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52567">
-                                                            <a title="Checkout" class="menu-item-link"
-                                                                href="https://wp2022.kodesolution.com/organek/checkout/"><span>Checkout</span></a>
-                                                        </li>
-                                                    </ul>
                                                 </li>
                                                 <li id="menu-item-30059"
-                                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30059">
-                                                                            <a title="Contact Us" class="menu-item-link"
-                                                                                onclick="if (!window.location.pathname.includes('index.html')) { window.location.href = './index.html#contactus'; } else { window.location.href = '#contactus'; }"><span>Contact Us</span>
-                                                                            </a>
-                                                                        </li>
+                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30059">
+                                                    <p title="Contact Us" class="menu-item-link" style="position:relative;top:7px"
+                                                        onclick="if (!window.location.pathname.includes('index.html')) { window.location.href = './index.html#contactus'; } else { window.location.href = '#contactus'; }"><span>Contact Us</span>
+                                                    </p>
+                                                </li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -883,12 +848,12 @@ if(document.getElementById('header')){
 																				onclick="if (!window.location.pathname.includes('index.html')) { window.location.href = './index.html#shop'; } else { window.location.href = '#shop'; } document.getElementById('navclose').click();"><span>Shop</span>
 																			</a>
 																		</li>
-																		<li id="menu-item-30054"
-																			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30054 menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-30034">
-																			<a title="Contact Us" class="menu-item-link"
-																				onclick="if (!window.location.pathname.includes('index.html')) { window.location.href = './index.html#contactus'; } else { window.location.href = '#contactus'; } document.getElementById('navclose').click();"><span>Contact Us</span>
-																			</a>
-																		</li>
+																			<li id="menu-item-30054"
+																				class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30054 menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-30034">
+																				<a title="Contact Us" class="menu-item-link"
+																					onclick="if (!window.location.pathname.includes('index.html')) { window.location.href = './index.html#contactus'; } else { window.location.href = '#contactus'; } document.getElementById('navclose').click();"><span>Contact Us</span>
+																				</a>
+																			</li>
 
 
 																	</ul>
@@ -1548,7 +1513,7 @@ We connect local farmers to international buyers — with integrity, quality, an
 											</div>
 										</div>
 									</div>
-									<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-fccea11 tm-bg-color-over-image"
+									<div class="d-none elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-fccea11 tm-bg-color-over-image"
 										data-id="fccea11" data-element_type="column">
 										<div class="elementor-widget-wrap elementor-element-populated">
 											<div class="elementor-element elementor-element-7b360fc7 elementor-widget elementor-widget-tm-ele-text-editor"
