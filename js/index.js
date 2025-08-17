@@ -328,7 +328,7 @@ if(document.getElementById('header')){
                                                         <div class="woocommerce top-nav-mini-cart-icon-container">
                                                             <div class="top-nav-mini-cart-icon-contents">
                                                                 <a class="mini-cart-icon"
-                                                                    href="https://wp2022.kodesolution.com/organek/cart/"
+                                                                    style="display: none" href="https://Wp2022.kodesolution.com/organek/cart/"
                                                                     title="View your shopping cart"><i
                                                                         class="lnr lnr-icon-cart1"></i>
                                                                     <span class="items-count">0</span> <span
@@ -652,7 +652,7 @@ if(document.getElementById('header')){
                                     data-id="2df2808" data-element_type="widget"
                                     data-widget_type="tm-ele-site-logo.default">
                                     <div class="elementor-widget-container">
-                                        <a class="site-brand" href="https://wp2022.kodesolution.com/organek/">
+                                        <a class="site-brand" style="display: none" href="https://Wp2022.kodesolution.com/organek/">
                                             <img decoding="async" class="logo-default" style="width: 59px"
                                                 src="../wp-content/uploads/new/logo.png"
                                                 width="" height="" alt="Organek">
@@ -790,7 +790,7 @@ if(document.getElementById('header')){
 															data-widget_type="tm-ele-site-logo.default">
 															<div class="elementor-widget-container">
 																<a class="site-brand"
-																	href="https://wp2022.kodesolution.com/organek/">
+																	style="display: none" href="https://Wp2022.kodesolution.com/organek/">
 																	<img decoding="async" class="logo-default"
 																		src="../wp-content/uploads/new/logo.png"
 																		width="" height="" alt="Organek">
@@ -1483,27 +1483,27 @@ We connect local farmers to international buyers — with integrity, quality, an
 														<ul id="menu-useful-links" class="">
 															<li id="menu-item-30050"
 																class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-30050">
-																<a href="https://wp2022.kodesolution.com/organek/"><i
+																<a style="display: none" href="https://Wp2022.kodesolution.com/organek/"><i
 																		class="tm-nav-arrow-icon fas fa-caret-right"></i>Home</a>
 															</li>
 															<li id="menu-item-30018"
 																class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30018">
 																<a
-																	href="https://wp2022.kodesolution.com/organek/about-us/"><i
+																	style="display: none" href="https://Wp2022.kodesolution.com/organek/about-us/"><i
 																		class="tm-nav-arrow-icon fas fa-caret-right"></i>About
 																	Us</a>
 															</li>
 															<li id="menu-item-30020"
 																class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30020">
 																<a
-																	href="https://wp2022.kodesolution.com/organek/projects/"><i
+																	style="display: none" href="https://Wp2022.kodesolution.com/organek/projects/"><i
 																		class="tm-nav-arrow-icon fas fa-caret-right"></i>Our
 																	Projects</a>
 															</li>
 															<li id="menu-item-30076"
 																class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30076">
 																<a
-																	href="https://wp2022.kodesolution.com/organek/team-grid/"><i
+																	style="display: none" href="https://Wp2022.kodesolution.com/organek/team-grid/"><i
 																		class="tm-nav-arrow-icon fas fa-caret-right"></i>Meet
 																	The Team</a>
 															</li>
@@ -1534,35 +1534,35 @@ We connect local farmers to international buyers — with integrity, quality, an
 															<li id="menu-item-30042"
 																class="menu-item menu-item-type-post_type menu-item-object-services menu-item-30042">
 																<a
-																	href="https://wp2022.kodesolution.com/organek/services/organic-products/"><i
+																	style="display: none" href="https://Wp2022.kodesolution.com/organek/services/organic-products/"><i
 																		class="tm-nav-arrow-icon fas fa-caret-right"></i>Organic
 																	Products</a>
 															</li>
 															<li id="menu-item-30040"
 																class="menu-item menu-item-type-post_type menu-item-object-services menu-item-30040">
 																<a
-																	href="https://wp2022.kodesolution.com/organek/services/fresh-vegetables/"><i
+																	style="display: none" href="https://Wp2022.kodesolution.com/organek/services/fresh-vegetables/"><i
 																		class="tm-nav-arrow-icon fas fa-caret-right"></i>Fresh
 																	Vegetables</a>
 															</li>
 															<li id="menu-item-30041"
 																class="menu-item menu-item-type-post_type menu-item-object-services menu-item-30041">
 																<a
-																	href="https://wp2022.kodesolution.com/organek/services/dairy-production/"><i
+																	style="display: none" href="https://Wp2022.kodesolution.com/organek/services/dairy-production/"><i
 																		class="tm-nav-arrow-icon fas fa-caret-right"></i>Dairy
 																	Production</a>
 															</li>
 															<li id="menu-item-30044"
 																class="menu-item menu-item-type-post_type menu-item-object-services menu-item-30044">
 																<a
-																	href="https://wp2022.kodesolution.com/organek/services/water-irrigation/"><i
+																	style="display: none" href="https://Wp2022.kodesolution.com/organek/services/water-irrigation/"><i
 																		class="tm-nav-arrow-icon fas fa-caret-right"></i>Water
 																	Irrigation</a>
 															</li>
 															<li id="menu-item-30043"
 																class="menu-item menu-item-type-post_type menu-item-object-services menu-item-30043">
 																<a
-																	href="https://wp2022.kodesolution.com/organek/services/organic-fertiliser/"><i
+																	style="display: none" href="https://Wp2022.kodesolution.com/organek/services/organic-fertiliser/"><i
 																		class="tm-nav-arrow-icon fas fa-caret-right"></i>Organic
 																	Fertilizer</a>
 															</li>

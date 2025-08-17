@@ -77,7 +77,7 @@
 			<span>Docs</span>
 		</a>
 				
-				<a id="intro-url" href="https://wp2022.kodesolution.com/organek/intro/" target="_blank" class="tm-floating-box-icon">
+				<a id="intro-url" style="display: none" href="https://Wp2022.kodesolution.com/organek/intro/" target="_blank" class="tm-floating-box-icon">
 			<img src="https://wp2022.kodesolution.com/organek/wp-content/plugins/mascot-color-switcher/lib/../color-switcher/images/intro.png" width="28" alt="">
 			<span>Intro</span>
 		</a>
