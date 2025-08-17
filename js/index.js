@@ -1,4 +1,4 @@
-let baseurl = 'http://localhost:5100/node';
+let baseurl = 'https://global-xt-backend.vercel.app/node';
 let orgData = JSON.parse(localStorage.getItem('orgData'));
 // 
 // // window.addEventListener('load', function () {
