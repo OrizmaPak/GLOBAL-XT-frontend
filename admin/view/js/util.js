@@ -1,6 +1,6 @@
 let qqqqqqqqqq = 0
 // let baseurl = 'https://GXT-sooty.vercel.app';
-let baseurl = 'http://localhost:5100/node';
+let baseurl = 'https://glxtbk.vercel.app/node';
 // let baseurl = 'https://GXTdev.online/node';
 
 
