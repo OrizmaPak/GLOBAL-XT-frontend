@@ -7,7 +7,7 @@ let orgData = JSON.parse(localStorage.getItem('orgData'));
 
 setTimeout(() => {
     document.getElementById('preloader').style.display = 'none';
-}, 4000);
+}, 5000);
 
 fetch(baseurl+'/api/front/admin/organizationsettings')
 .then(response => {
@@ -792,7 +792,7 @@ if(document.getElementById('header')){
 															data-widget_type="tm-ele-site-logo.default">
 															<div class="elementor-widget-container">
 																<a class="site-brand"
-																	style="display: none" href="https://Wp2022.kodesolution.com/organek/">
+																	 href="./index.html">
 																	<img decoding="async" class="logo-default"
 																		src="../wp-content/uploads/new/logo.png"
 																		width="" height="" alt="Organek">
@@ -1485,20 +1485,20 @@ We connect local farmers to international buyers — with integrity, quality, an
 														<ul id="menu-useful-links" class="">
 															<li id="menu-item-30050"
 																class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-30050">
-																<a style="display: none" href="https://Wp2022.kodesolution.com/organek/"><i
+																<a  href="./index.html"><i
 																		class="tm-nav-arrow-icon fas fa-caret-right"></i>Home</a>
 															</li>
 															<li id="menu-item-30018"
 																class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30018">
 																<a
-																	style="display: none" href="https://Wp2022.kodesolution.com/organek/about-us/"><i
+																	 href="./aboutus.html"><i
 																		class="tm-nav-arrow-icon fas fa-caret-right"></i>About
 																	Us</a>
 															</li>
 															<li id="menu-item-30020"
 																class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30020">
 																<a
-																	style="display: none" href="https://Wp2022.kodesolution.com/organek/projects/"><i
+																	 href="./shop.html"><i
 																		class="tm-nav-arrow-icon fas fa-caret-right"></i>Our
 																	Projects</a>
 															</li>
