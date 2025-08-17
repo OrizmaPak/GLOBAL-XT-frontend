@@ -75,6 +75,31 @@
         #gxt-shop-container .woocommerce-pagination a[aria-disabled="true"]{pointer-events:none;opacity:.5}
         #gxt-shop-container .gxt-perpage{margin-left:auto}
         #gxt-shop-container .tm-wc-archive-before-loop{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+        /* Department Filter Buttons */
+        #gxt-shop-container .gxt-dept-buttons {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin: 12px 0;
+        }
+        #gxt-shop-container .gxt-btn {
+          padding: 6px 14px;
+          border: 1px solid #e5e7eb;
+          border-radius: 9999px;
+          background: #fff;
+          font-size: 14px;
+          cursor: pointer;
+          transition: all .2s;
+        }
+        #gxt-shop-container .gxt-btn:hover {
+          background: #f3f4f6;
+        }
+        #gxt-shop-container .gxt-btn.active {
+          background: #111827;
+          color: #fff;
+          border-color: #111827;
+        }
       `;
       document.head.appendChild(style);
     }
@@ -150,7 +175,7 @@
       page: Number.isFinite(urlPage) && urlPage > 0 ? urlPage : 1,
       perPage: Number.isFinite(urlPerPage) && urlPerPage > 0 ? urlPerPage : 12,
       departments: [],
-      selectedDept: ''
+      selectedDepts: [] // ✅ multiple departments
     };
   
     function computeDepartments(items) {
@@ -223,8 +248,10 @@
     }
   
     function applyFilter() {
-      const dept = (state.selectedDept || '').toLowerCase();
-      state.filtered = state.all.filter(it => !dept || (it.departmentName || '').toLowerCase() === dept);
+      const selected = state.selectedDepts.map(s => s.toLowerCase());
+      state.filtered = state.all.filter(it => 
+        selected.length === 0 || selected.includes((it.departmentName || '').toLowerCase())
+      );
       // Reset to page 1 if current page would be out of range
       const totalPages = Math.max(1, Math.ceil(state.filtered.length / state.perPage));
       if (state.page > totalPages) state.page = 1;
@@ -234,58 +261,49 @@
     // ---------------- Department Filter UI ----------------
     function injectDepartmentFilter() {
       if (!beforeLoopBar) return;
+  
       const holder = document.createElement('div');
-      holder.className = 'woocommerce-department';
-      holder.style.marginLeft = '8px';
-      holder.innerHTML = `
-        <select id="gxt-dept-filter" class="orderby" aria-label="Filter by department"></select>
-      `;
+      holder.className = 'gxt-dept-buttons';
+      beforeLoopBar.insertBefore(holder, orderingForm || null);
   
-      // Per-page selector (optional, synced to URL)
-      const perPageWrap = document.createElement('div');
-      perPageWrap.className = 'gxt-perpage';
-      perPageWrap.innerHTML = `
-        <label style="font-size:13px;color:#6b7280;margin-right:6px">Per page:</label>
-        <select id="gxt-perpage" class="orderby" aria-label="Items per page">
-          ${[8,12,16,20,24].map(n => `<option value="${n}">${n}</option>`).join('')}
-        </select>
-      `;
-  
-      // Place next to ordering form if present
-      if (orderingForm && orderingForm.parentNode === beforeLoopBar) {
-        beforeLoopBar.insertBefore(holder, orderingForm);
-        beforeLoopBar.appendChild(perPageWrap);
-      } else {
-        beforeLoopBar.appendChild(holder);
-        beforeLoopBar.appendChild(perPageWrap);
-      }
-  
-      // Populate department options
-      const sel = $('#gxt-dept-filter', holder);
-      sel.innerHTML = '';
-      sel.add(new Option('All Departments', ''));
-      state.departments.forEach(name => sel.add(new Option(name, name)));
-  
-      if (urlDeptName && state.departments.includes(urlDeptName)) {
-        sel.value = urlDeptName;
-        state.selectedDept = urlDeptName;
-      }
-  
-      sel.addEventListener('change', (e) => {
-        state.selectedDept = e.target.value || '';
-        state.page = 1;
+      // "All" button
+      const allBtn = document.createElement('button');
+      allBtn.className = 'gxt-btn active';
+      allBtn.textContent = 'All';
+      allBtn.addEventListener('click', () => {
+        state.selectedDepts = [];
         applyFilter();
+        updateButtonStyles(holder);
       });
+      holder.appendChild(allBtn);
   
-      // Per-page setup
-      const perSel = $('#gxt-perpage', perPageWrap);
-      if ([8,12,16,20,24].includes(state.perPage)) perSel.value = String(state.perPage);
-      perSel.addEventListener('change', (e) => {
-        const v = parseInt(e.target.value, 10);
-        if (Number.isFinite(v) && v > 0) {
-          state.perPage = v;
-          state.page = 1;
+      // Category buttons
+      state.departments.forEach(name => {
+        const btn = document.createElement('button');
+        btn.className = 'gxt-btn';
+        btn.textContent = name;
+        btn.addEventListener('click', () => {
+          const idx = state.selectedDepts.indexOf(name);
+          if (idx >= 0) {
+            state.selectedDepts.splice(idx, 1); // unselect
+          } else {
+            state.selectedDepts.push(name); // select
+          }
           applyFilter();
+          updateButtonStyles(holder);
+        });
+        holder.appendChild(btn);
+      });
+    }
+  
+    // ---------------- Button State Sync ----------------
+    function updateButtonStyles(holder) {
+      const buttons = $$('.gxt-btn', holder);
+      buttons.forEach(btn => {
+        if (btn.textContent === 'All') {
+          btn.classList.toggle('active', state.selectedDepts.length === 0);
+        } else {
+          btn.classList.toggle('active', state.selectedDepts.includes(btn.textContent));
         }
       });
     }
@@ -358,26 +376,26 @@
     function syncUrl() {
       const url = new URL(location.href);
       const sp = url.searchParams;
-      if (state.selectedDept) sp.set('department', state.selectedDept); else sp.delete('department');
+      if (state.selectedDepts.length > 0) sp.set('department', state.selectedDepts.join(',')); else sp.delete('department');
       sp.set('page', String(state.page));
       sp.set('perPage', String(state.perPage));
       // Only push if changed
       const newQs = sp.toString();
       if (newQs !== location.search.replace(/^\?/,''))
-        history.replaceState({page: state.page, perPage: state.perPage, department: state.selectedDept}, '', `${url.pathname}?${newQs}`);
+        history.replaceState({page: state.page, perPage: state.perPage, department: state.selectedDepts}, '', `${url.pathname}?${newQs}`);
     }
   
     window.addEventListener('popstate', (e) => {
       const sp = new URLSearchParams(location.search);
       const p  = parseInt(sp.get('page') || '1', 10);
       const pp = parseInt(sp.get('perPage') || String(state.perPage), 10);
-      const d  = (sp.get('department') || '');
+      const d  = (sp.get('department') || '').split(',').filter(Boolean);
       state.page = Number.isFinite(p) && p > 0 ? p : 1;
       state.perPage = Number.isFinite(pp) && pp > 0 ? pp : state.perPage;
-      state.selectedDept = d;
-      // Update dropdowns if present
-      const deptSel = $('#gxt-dept-filter', container);
-      if (deptSel) deptSel.value = state.selectedDept || '';
+      state.selectedDepts = d;
+      // Update button styles if present
+      const holder = $('.gxt-dept-buttons', container);
+      if (holder) updateButtonStyles(holder);
       const perSel = $('#gxt-perpage', container);
       if (perSel) perSel.value = String(state.perPage);
       applyFilter();
@@ -398,16 +416,15 @@
           injectDepartmentFilter();
   
           // Initialize department from URL if valid
-          if (!state.selectedDept && urlDeptName && state.departments.includes(urlDeptName)) {
-            state.selectedDept = urlDeptName;
+          if (!state.selectedDepts.length && urlDeptName) {
+            const deptsFromUrl = urlDeptName.split(',').filter(name => state.departments.includes(name));
+            state.selectedDepts = deptsFromUrl;
           }
   
           hideSkeleton();
   
           // Prepare filtered list and first render
-          const dept = (state.selectedDept || '').toLowerCase();
-          state.filtered = state.all.filter(it => !dept || (it.departmentName || '').toLowerCase() === dept);
-          renderGridPage();
+          applyFilter();
         })
         .catch(err => {
           console.error('Inventory load failed:', err);
@@ -417,4 +434,3 @@
         });
     });
   })();
-  

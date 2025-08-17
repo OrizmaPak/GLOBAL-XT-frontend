@@ -1058,7 +1058,7 @@
                                             data-widget_type="tm-ele-page-title.default">
                                             <div class="elementor-widget-container">
 
-                                                <h1 class="title" style="">Shop</h1>
+                                                <h1 class="title" style="">Products</h1>
 
                                             </div>
                                         </div>
@@ -1098,10 +1098,9 @@
 
                                 </header>
                                 <div class="woocommerce-notices-wrapper"></div>
-                                <div class="tm-wc-archive-before-loop">
-                                    <p class="woocommerce-result-count" role="alert" aria-relevant="all">
-                                        Showing 1&ndash;10 of 17 results</p>
-                                    <div class="woocommerce-perpage">
+                                <div class="tm-wc-archive-before-loop" style="display: flex;justify-content: space-between;">
+                                    
+                                    <div class="woocommerce-perpage d-none">
                                         <select onchange="if (this.value) window.location.href=this.value"
                                             class="perpage">
                                             <option value='?perpage=10'>Select Products Per Page</option>
@@ -1111,7 +1110,7 @@
                                             <option value='?perpage=64'>64 Products Per Page</option>
                                         </select>
                                     </div>
-                                    <form class="woocommerce-ordering" method="get">
+                                    <form class="woocommerce-ordering d-none" method="get">
                                         <select name="orderby" class="orderby" aria-label="Shop order">
                                             <option value="menu_order" selected='selected'>Default sorting</option>
                                             <option value="popularity">Sort by popularity</option>
@@ -1122,7 +1121,9 @@
                                         </select>
                                         <input type="hidden" name="paged" value="1" />
                                     </form>
-                                    <div class="clearfix"></div>
+                                    <p class="woocommerce-result-count" role="alert" aria-relevant="all">
+                                        Showing 1&ndash;10 of 17 results</p>
+                                    <div class="clearfix d-none"></div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <!-- Products Masonry -->
