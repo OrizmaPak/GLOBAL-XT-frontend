@@ -2038,6 +2038,11 @@
         };
         /* ]]> */
     </script>
+    <script type="text/javascript">
+        if (window.elementorFrontendConfig?.urls) {
+            window.elementorFrontendConfig.urls.assets = new URL('../wp-content/plugins/elementor/assets/', window.location.href).href;
+        }
+    </script>
     <script type="text/javascript"
         src="../wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.30.2"
         id="elementor-frontend-js"></script>

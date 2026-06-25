@@ -1,5 +1,24 @@
 let baseurl = 'https://glxtbk.vercel.app/node';
-let orgData = JSON.parse(localStorage.getItem('orgData'));
+const defaultOrgInfo = {
+    logo: 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg',
+    email: '',
+    phone: ''
+};
+
+function getStoredOrgData() {
+    try {
+        return JSON.parse(localStorage.getItem('orgData'));
+    } catch (_) {
+        return null;
+    }
+}
+
+function getOrgInfo(data) {
+    return data?.data?.[0] ? { ...defaultOrgInfo, ...data.data[0] } : defaultOrgInfo;
+}
+
+let orgData = getStoredOrgData();
+let orgInfo = getOrgInfo(orgData);
 // 
 // // window.addEventListener('load', function () {
 
@@ -19,11 +38,12 @@ fetch(baseurl+'/api/front/admin/organizationsettings')
 .then(data => {
 	console.log('Organization Data:', data);
 	localStorage.setItem('orgData', JSON.stringify(data))	
-	orgData = JSON.parse(localStorage.getItem('orgData'));
+	orgData = getStoredOrgData();
+    orgInfo = getOrgInfo(orgData);
 	// You can add more logic here to handle the organization data
 	for(let i=0;i<document.getElementsByClassName('companylogo').length;i++){
-		if(document.getElementsByClassName('companylogo')[i])document.getElementsByClassName('companylogo')[i].src = `${orgData.data[0].logo}`;
-		if(document.getElementsByClassName('companylogo')[i])document.getElementsByClassName('companylogo')[i].setAttribute('src', orgData.data[0].logo);
+		if(document.getElementsByClassName('companylogo')[i])document.getElementsByClassName('companylogo')[i].src = `${orgInfo.logo}`;
+		if(document.getElementsByClassName('companylogo')[i])document.getElementsByClassName('companylogo')[i].setAttribute('src', orgInfo.logo);
 	}
 	
 })
@@ -280,7 +300,7 @@ if(document.getElementById('header')){
                                     data-id="583b2a0" data-element_type="widget" data-widget_type="image.default">
                                     <div class="elementor-widget-container">
                                         <a href="/globalxt/index.html">
-											<img decoding="async" width="150" height="48" style="width:97px" src="${orgData.data[0].logo??'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'}" class="attachment-large size-large wp-image-35010 companylogo" alt="" /> 
+											<img decoding="async" width="150" height="48" style="width:97px" src="${orgInfo.logo}" class="attachment-large size-large wp-image-35010 companylogo" alt="" /> 
                                         </a>
                                     </div>
                                 </div>
@@ -303,16 +323,16 @@ if(document.getElementById('header')){
                                                         <div class="tm-header-top-info " style="width:500px">
                                                             <ul style="display:flex">
                                                                 <li>
-																	<a href="mailto:${orgData.data[0].email}">
+																	<a href="mailto:${orgInfo.email}">
                                                                         <i aria-hidden="true" class="fas fa-envelope"></i> 
-                                                                        <span>${orgData.data[0].email}</span>
+                                                                        <span>${orgInfo.email}</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-																	<a href='tel:${orgData.data[0].phone}'>
+																	<a href='tel:${orgInfo.phone}'>
                                                                         <i aria-hidden="true"
                                                                             class=" flaticon-common-call"></i> Tel:
-																		${orgData.data[0].phone}</a>
+																		${orgInfo.phone}</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -736,7 +756,7 @@ if(document.getElementById('header')){
                                                     <div class="content">Call Anytime </div>
 
                                                     <h6 class="icon-box-title ">
-														${orgData.data[0].phone} </h6>
+														${orgInfo.phone} </h6>
 
 
 
@@ -1345,8 +1365,8 @@ if(document.getElementById('footer')){
 																<h5 class="icon-box-title ">
 																	Visit Us </h5>
 																<div class="content">
-																	<a href="mailto:${orgData.data[0].email}" class="__cf_email__" data-cfemail="9bd5fefefff3fef7ebdbfff4f6faf2f5b5f8f4f6">
-																		${orgData.data[0].email}
+																	<a href="mailto:${orgInfo.email}" class="__cf_email__" data-cfemail="9bd5fefefff3fef7ebdbfff4f6faf2f5b5f8f4f6">
+																		${orgInfo.email}
 																	</a>
 																</div>
 
@@ -1368,7 +1388,7 @@ if(document.getElementById('footer')){
 												data-widget_type="image.default">
 												<div class="elementor-widget-container">
 													<img loading="lazy" decoding="async" width="250" height="148"
-														src="${orgData.data[0].logo??'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'}"
+														src="${orgInfo.logo}"
 														class="attachment-full size-full wp-image-35011" alt="" />
 												</div>
 											</div>
@@ -1398,7 +1418,7 @@ if(document.getElementById('footer')){
 
 																<h5 class="icon-box-title ">
 																	Call Now </h5>
-																<div class="content">${orgData.data[0].phone}</div>
+																<div class="content">${orgInfo.phone}</div>
 
 
 
